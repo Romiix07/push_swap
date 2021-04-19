@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:29:53 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 14:02:41 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 14:16:11 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ int	main(int ac, char **av)
 		sort(&lista, &listb, ac - 1);
 	*/
 	print_list(lista);
-	pb(&lista, &listb);
-	pb(&lista, &listb);
-	pb(&lista, &listb);
+	ra(&lista);
 	print_list(lista);
-	print_list(listb);
+	//	print_list(listb);
 	free_list(&lista);
 	free_list(&listb);
 	return (1);

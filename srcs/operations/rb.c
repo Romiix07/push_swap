@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 14:02:18 by rmouduri         ###   ########.fr       */
+/*   Created: 2021/04/19 14:05:00 by rmouduri          #+#    #+#             */
+/*   Updated: 2021/04/19 14:21:40 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	pa(t_list **lista, t_list **listb)
+void	rb(t_list **listb)
 {
 	t_node	*node;
 
-	if (!listb || !*listb || !(*listb)->head)
+	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
 		return ;
 	node = (*listb)->head;
 	(*listb)->head = (*listb)->head->next;
-	(*listb)->head->prev = NULL;
-	node->next = (*lista)->head;
-	node->prev = NULL;
-	if ((*lista)->head)
-		(*lista)->head->prev = node;
-	(*lista)->head = node;
+	if ((*listb)->head)
+		(*listb)->head->prev = NULL;
+	node->next = NULL;
+	node->prev = (*listb)->tail;
+	(*listb)->tail->next = node;
+	(*listb)->tail = node;
 }
