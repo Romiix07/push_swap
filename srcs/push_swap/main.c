@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:29:53 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:05:24 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 12:24:54 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,9 @@ int	main(int ac, char **av)
 	free(tab);
 	/*	if (!is_sorted(list1, list2))
 		sort(list1, list1, ac - 1);
-	free_lists(&list1, &list2);
 	*/
-	while (list1->head)
-	{
-		printf("%d ", list1->head->nb);
-		list1->head = list1->head->next;
-	}
+	print_list(list1);
+	free_list(&list1);
+	free_list(&list2);
 	return (1);
 }

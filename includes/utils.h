@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:31:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:06:35 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 12:23:27 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ int				ft_strcmp(const char *s1, const char *s2);
 t_node			*ft_lstnew(int nb);
 int				init_lists(t_list **list1, t_list **list2);
 int				convert(int *tab, t_list **list, int tab_size);
+void			free_list(t_list **list);
+void			print_list(t_list *list);
+void			ft_putnbr(int nb);
 
 #endif
