@@ -6,24 +6,24 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:41:20 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 13:11:37 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	sa(t_list **list)
+void	sa(t_list **lista)
 {
 	t_node	*node;
 
-	if (!list || !*list)
+	if (!lista || !*lista)
 		return ;
-	if (!(*list)->head || !(*list)->head->next)
+	if (!(*lista)->head || !(*lista)->head->next)
 		return ;
-	node = (*list)->head->next;
-	(*list)->head->next = node->next;
-	(*list)->head->prev = node;
+	node = (*lista)->head->next;
+	(*lista)->head->next = node->next;
+	(*lista)->head->prev = node;
 	node->prev = NULL;
-	node->next = (*list)->head;
-	(*list)->head = node;
+	node->next = (*lista)->head;
+	(*lista)->head = node;
 }

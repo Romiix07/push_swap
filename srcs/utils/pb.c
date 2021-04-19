@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 13:11:59 by rmouduri         ###   ########.fr       */
+/*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
+/*   Updated: 2021/04/19 14:02:05 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	sb(t_list **listb)
+void	pb(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
-	if (!listb || !*listb)
+	if (!lista || !*lista || !(*lista)->head)
 		return ;
-	if (!(*listb)->head || !(*listb)->head->next)
-		return ;
-	node = (*listb)->head->next;
-	(*listb)->head->next = node->next;
-	(*listb)->head->prev = node;
-	node->prev = NULL;
+	node = (*lista)->head;
+	(*lista)->head = (*lista)->head->next;
+	(*lista)->head->prev = NULL;
 	node->next = (*listb)->head;
+	node->prev = NULL;
+	if ((*listb)->head)
+		(*listb)->head->prev = node;
 	(*listb)->head = node;
 }

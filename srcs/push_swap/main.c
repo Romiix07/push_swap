@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:29:53 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:43:52 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 14:02:41 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 int	main(int ac, char **av)
 {
 	int		*tab;
-	t_list	*list1;
-	t_list	*list2;
+	t_list	*lista;
+	t_list	*listb;
 
 	if (ac < 2)
 		return (return_error("Not enough arguments\n"));
@@ -31,17 +31,20 @@ int	main(int ac, char **av)
 		free(tab);
 		return (return_error("Invalid argument\n"));
 	}
-	if (!(init_lists(&list1, &list2)))
+	if (!(init_lists(&lista, &listb)))
 		return (0);
-	convert(tab, &list1, ac - 1);
+	convert(tab, &lista, ac - 1);
 	free(tab);
-	/*	if (!is_sorted(list1, list2))
-		sort(list1, list1, ac - 1);
+	/*	if (!is_sorted(lista, listb))
+		sort(&lista, &listb, ac - 1);
 	*/
-	print_list(list1);
-	sa(&list1);
-	print_list(list1);
-	free_list(&list1);
-	free_list(&list2);
+	print_list(lista);
+	pb(&lista, &listb);
+	pb(&lista, &listb);
+	pb(&lista, &listb);
+	print_list(lista);
+	print_list(listb);
+	free_list(&lista);
+	free_list(&listb);
 	return (1);
 }
