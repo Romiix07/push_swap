@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:31:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:23:27 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 12:44:19 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,9 @@ int				convert(int *tab, t_list **list, int tab_size);
 void			free_list(t_list **list);
 void			print_list(t_list *list);
 void			ft_putnbr(int nb);
+
+
+void	sa(t_list **list);
+void	sb(t_list **list);
 
 #endif

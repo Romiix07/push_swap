@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:19:00 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:31:04 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 12:45:39 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	print_list(t_list *list)
 		tmp = *tmp.next;
 	}
 	ft_putnbr(tmp.nb);
+	write(1, "\n", 1);
 }
