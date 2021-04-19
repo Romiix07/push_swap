@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <rmouduri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/16 15:44:20 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/16 15:56:17 by rmouduri         ###   ########.fr       */
+/*   Created: 2020/11/17 12:57:32 by romain            #+#    #+#             */
+/*   Updated: 2021/04/19 11:49:27 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	sb(int *tab, int tab_amt)
-{
-	int	swap;
+#include <stdlib.h>
+#include "utils.h"
 
-	if (tab_amt < 2)
-		return ;
-	swap = tab[0];
-	tab[0] = tab[1];
-	tab[1] = swap;
+t_node	*ft_lstnew(int nb)
+{
+	t_node	*node;
+
+	if ((node = malloc(sizeof(t_node))) == NULL)
+		return (NULL);
+	node->nb = nb;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
 }

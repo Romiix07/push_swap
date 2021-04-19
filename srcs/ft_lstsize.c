@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <rmouduri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/16 15:44:20 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/16 15:56:42 by rmouduri         ###   ########.fr       */
+/*   Created: 2020/11/17 13:26:57 by romain            #+#    #+#             */
+/*   Updated: 2020/11/17 13:28:26 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	sa(int *tab, int tab_amt)
+int	ft_lstsize(t_list *lst)
 {
-	int	swap;
+	int	i;
 
-	if (tab_amt < 2)
-		return ;
-	swap = tab[0];
-	tab[0] = tab[1];
-	tab[1] = swap;
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		++i;
+	}
+	return (i);
 }
