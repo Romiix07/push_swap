@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/16 16:19:17 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 15:25:26 by rmouduri         ###   ########.fr       */
+/*   Created: 2021/04/19 15:12:31 by rmouduri          #+#    #+#             */
+/*   Updated: 2021/04/19 15:26:23 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "utils.h"
 
-void	sort(t_list **lista, t_list **listb);
-void	fill_or_write(char *steps, unsigned char *s_len, char *add,
-					  unsigned char ad_len);
+void	rrb(t_list **listb)
+{
+	t_node	*node;
 
-#endif
+	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
+		return ;
+	node = (*listb)->tail;	
+	(*listb)->tail = (*listb)->tail->prev;
+	(*listb)->tail->next = NULL;
+	(*listb)->head->prev = node;
+	node->next = (*listb)->head;
+	node->prev = NULL;
+	(*listb)->head = node;
+}

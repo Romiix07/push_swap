@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:31:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 14:25:11 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 15:28:03 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ void	pb(t_list **lista, t_list **listb);
 void	ra(t_list **lista);
 void	rb(t_list **listb);
 void	rr(t_list **lista, t_list **listb);
+void	rra(t_list **lista);
+void	rrb(t_list **listb);
+void	rrr(t_list **lista, t_list **listb);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:10:54 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/16 16:42:08 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 15:24:44 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "utils.h"
 #include "push_swap.h"
 
-void	sort(int *s1, int *s2, int ac)
+void	sort(t_list **lista, t_list **listb)
 {
 	char			str[256];
 	unsigned char	len;
