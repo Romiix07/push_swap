@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 14:05:00 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 14:24:07 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 12:04:16 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	ra(t_list **lista)
 		return ;
 	node = (*lista)->head;
 	(*lista)->head = (*lista)->head->next;
-	if ((*lista)->head)
-		(*lista)->head->prev = NULL;
+	(*lista)->head->prev = NULL;
 	node->next = NULL;
 	node->prev = (*lista)->tail;
 	(*lista)->tail->next = node;
