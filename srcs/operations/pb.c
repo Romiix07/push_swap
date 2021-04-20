@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 15:19:18 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 15:35:38 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	pb(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
+	write(1, "pb\n", 3);
 	if (!lista || !*lista || !(*lista)->head || !(*lista)->tail)
 		return ;
 	node = (*lista)->head;

@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 14:05:00 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 15:18:07 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 15:35:47 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ra(t_list **lista)
 {
 	t_node	*node;
 
+	write(1, "ra\n", 3);
 	if (!lista || !*lista || !(*lista)->head || !(*lista)->tail)
 		return ;
 	if ((*lista)->head->nb == (*lista)->tail->nb)

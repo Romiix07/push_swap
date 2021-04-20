@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 15:18:44 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 15:35:17 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	pa(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
+	write(1, "pa\n", 3);
 	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
 		return ;
 	node = (*listb)->head;
