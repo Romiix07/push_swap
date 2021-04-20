@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 16:11:51 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:34:01 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sb(t_list **listb)
 		return ;
 	if (!(*listb)->head || !(*listb)->head->next)
 		return ;
-	if ((*listb)->tail->nb == (*listb)->tail->nb)
+	if ((*listb)->head->nb == (*listb)->tail->nb)
 		return ;
 	node = (*listb)->head->next;
 	(*listb)->head->next = node->next;
@@ -29,4 +29,7 @@ void	sb(t_list **listb)
 	node->prev = NULL;
 	node->next = (*listb)->head;
 	(*listb)->head = node;
+
+	write(1, "\tlistb: ", 8);
+	print_list(*listb);
 }

@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 14:05:00 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 15:35:47 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:31:23 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,7 @@ void	ra(t_list **lista)
 	node->prev = (*lista)->tail;
 	(*lista)->tail->next = node;
 	(*lista)->tail = node;
+	
+	write(1, "\tlista: ", 8);
+	print_list(*lista);
 }
