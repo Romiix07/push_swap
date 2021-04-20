@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 14:05:00 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 12:01:37 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 15:18:18 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	rb(t_list **listb)
 	t_node	*node;
 
 	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
+		return ;
+	if ((*listb)->head->nb == (*listb)->tail->nb)
 		return ;
 	node = (*listb)->head;
 	(*listb)->head = (*listb)->head->next;
