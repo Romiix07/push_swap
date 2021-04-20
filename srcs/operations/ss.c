@@ -14,6 +14,7 @@
 
 void	ss(t_list **list1, t_list **list2)
 {
+	write(1, "SS", 2);
 	sa(list1);
 	sb(list2);
 }

@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:29:53 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 12:28:45 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/19 15:23:45 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 int	main(int ac, char **av)
 {
 	int		*tab;
+	int		med;
 	t_list	*lista;
 	t_list	*listb;
 
@@ -31,17 +32,12 @@ int	main(int ac, char **av)
 		free(tab);
 		return (return_error("Invalid argument\n"));
 	}
-	if (!(init_lists(&lista, &listb)) || !(convert(tab, &lista, ac - 1)))
-		return (return_error("Init and Convert list\n"));
+	if (!(init_lists(&lista, &listb)))
+		return (0);
+	convert(tab, &lista, ac - 1);
 	free(tab);
-	/*	if (!is_sorted(lista, listb))
-		sort(&lista, &listb, ac - 1);
-	*/
-	//print_list(lista);
-	//	printf("head = %d\ntail = %d\n", lista->head->nb, lista->tail->nb);
-	//	pb(&lista, &listb);
-	//print_list(lista);
-	//printf("head = %d\ntail = %d\n", listb->head->nb, listb->tail->nb);
+	med = median(lista, 10);
+	push_swap(lista, listb, 10, med);
 	free_list(&lista);
 	free_list(&listb);
 	return (1);

@@ -14,6 +14,7 @@
 
 void	rr(t_list **lista, t_list **listb)
 {
+	write(1, "RR", 2);
 	ra(lista);
 	rb(listb);
 }

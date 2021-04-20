@@ -38,8 +38,9 @@ int				convert(int *tab, t_list **list, int tab_size);
 void			free_list(t_list **list);
 void			print_list(t_list *list);
 void			ft_putnbr(int nb);
-int				is_sorted(t_list *lista, t_list *listb);
-
+int				is_sorted(t_list *lista);
+int				median(t_list *list_a, int size);
+int				push_swap(t_list *list_a, t_list *list_b, int size, int med);
 
 void	sa(t_list **lista);
 void	sb(t_list **listb);

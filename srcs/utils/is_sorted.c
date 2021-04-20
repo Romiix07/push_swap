@@ -13,12 +13,12 @@
 #include <unistd.h>
 #include "utils.h"
 
-int	is_sorted(t_list *lista, t_list *listb)
+int	is_sorted(t_list *lista)
 {
 	t_node	tmp;
 	int		nb;
 
-	if (!lista || (listb && (listb->head || listb->tail)))
+	if (!lista)
 		return (0);
 	if (lista->head)
 		tmp = *lista->head;
@@ -30,5 +30,7 @@ int	is_sorted(t_list *lista, t_list *listb)
 		nb = tmp.nb;
 		tmp = *tmp.next;
 	}
+	if (nb > tmp.nb)
+			return (0);
 	return (1);
 }
