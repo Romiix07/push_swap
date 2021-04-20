@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:00:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 16:49:19 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:03:15 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	main(int ac, char **av)
 	free(tab);
 	if (read_and_exec_lines(&lista, &listb) == 0)
 		return (write(2, "Error\n", 6));
-	if (is_sorted(lista, listb) == 0)
+	print_list(lista);
+	if (is_sorted(lista) == 0 || lista->head)
 		return (write(1, "KO\n", 3));
 	return (write(1, "OK\n", 3));
 }

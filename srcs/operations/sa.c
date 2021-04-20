@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 15:36:46 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:11:59 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	sa(t_list **lista)
 	if (!lista || !*lista)
 		return ;
 	if (!(*lista)->head || !(*lista)->head->next)
+		return ;
+	if ((*lista)->head->nb == (*lista)->tail->nb)
 		return ;
 	node = (*lista)->head->next;
 	(*lista)->head->next = node->next;

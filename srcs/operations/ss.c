@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:55:39 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:56:19 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 15:43:54 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ss(t_list **list1, t_list **list2)
 {
-	write(1, "SS", 2);
 	sa(list1);
 	sb(list2);
 }
