@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:12:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 15:26:23 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 15:10:24 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	rrb(t_list **listb)
 
 	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
 		return ;
-	node = (*listb)->tail;	
+	if ((*listb)->tail->nb == (*listb)->head->nb)
+		return ;
+	node = (*listb)->tail;
 	(*listb)->tail = (*listb)->tail->prev;
 	(*listb)->tail->next = NULL;
 	(*listb)->head->prev = node;
