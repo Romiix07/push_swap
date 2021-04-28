@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/28 19:26:27 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/28 19:33:41 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@ static int	get_lower_nb(t_list *list, int nb)
 	int		min;
 
 	tmp = *list->head;
-	min = tmp.nb;
+	while (tmp.next)
+	{
+		min = tmp.nb;
+		if (tmp.nb < nb)
+			break ;
+		tmp = *tmp.next;
+	}
 	while (tmp.next)
 	{
 		if (tmp.nb > min && tmp.nb < nb)
