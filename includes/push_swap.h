@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 16:19:17 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/28 15:02:03 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/28 19:00:55 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	fill_or_write(char *steps, unsigned char *s_len, char *add,
 					  unsigned char ad_len);
 int		get_closest_nb(t_list *list, int max);
 int		get_lowest_operation(t_list *list, int nb);
-
+int		where_is_lowest_nb(t_list *list);
 
 #endif
