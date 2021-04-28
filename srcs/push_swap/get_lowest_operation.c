@@ -40,7 +40,7 @@ int	get_lowest_operation(t_list *list, int nb)
 
 	//	printf("%d\n", nb);
 	//	write(1, "printing\n", 9);
-	print_list(list);
+//	print_list(list);
 	forward = 0;
 	tmp = *list->head;
 	while (tmp.next)

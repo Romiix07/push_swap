@@ -98,17 +98,89 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 	pb(&lst_a, &lst_b);
 	if (is_sorted(lst_a) != 1)
 		three_swap(lst_a);
-	if (lst_b->head->nb < lst_a->head->nb || lst_b->head->nb > lst_a->tail->nb)
+	if (lst_b->head->nb < lst_a->head->nb)
 	{
+		if (lst_b->head->nb > lst_b->head->next->nb)
+		{
 			write(1, "pa\n", 3);
 			pa(&lst_a, &lst_b);
 			i++;
+		}
+		write(1, "pa\n", 3);
+		pa(&lst_a, &lst_b);
+		i++;
+		if (i < 2 && lst_b->head->nb > lst_a->tail->nb)
+		{
+			write(1, "pa\nra\n", 6);
+			pa(&lst_a, &lst_b);
+			ra(&lst_a);
+			i++;
+		}
 	}
+	if (i < 2 && (lst_b->head->nb > lst_a->tail->nb))
+	{
+		if (lst_b->head->nb < lst_b->head->next->nb)
+		{
+			write(1, "pa\nra\n", 6);
+			pa(&lst_a, &lst_b);
+			ra(&lst_a);
+			i++;
+		}
+		write(1, "pa\nra\n", 6);
+		pa(&lst_a, &lst_b);
+		ra(&lst_a);
+		i++;
+		if (i < 2 && lst_b->head->nb < lst_a->head->nb)
+		{
+			write(1, "pa\n", 3);
+			pa(&lst_a, &lst_b);
+			i++;
+		}
+	}
+//	print_list(lst_a);
+	if (i == 0 && (lst_b->head->next->nb > lst_a->tail->nb || lst_b->head->next->nb < lst_a->head->nb))
+	{
+		write(1, "rb\npa\n", 6);
+		rb(&lst_b);
+		if (lst_b->head->nb > lst_a->tail->nb)
+		{
+			write(1, "ra\n", 3);
+			pa(&lst_a, &lst_b);
+			ra(&lst_a);
+		}
+		else
+			pa(&lst_a, &lst_b);
+		i++;
+	}
+//	print_list(lst_b);
+//	return ;
 	while (i < 2)
 	{
 		print_list(lst_a);
 		i++;
-		while (lst_a->head->nb < lst_b->head->nb)
+		int w;
+//		if (lst_b->head)
+			w = get_lowest_operation(lst_a, lst_b->head->nb);
+		printf("%d\n", w);
+		if (w == 1)
+			while (lst_a->head->nb < lst_b->head->nb)
+			{
+				write(1, "ra\n", 3);
+				ra(&lst_a);
+			//	break;
+			}
+		else
+		//	while (lst_a->tail->nb < lst_b->head->nb)
+		//	{
+		//		write(1, "rra\n", 4);
+		//		rra(&lst_a);
+		//	}
+			while (lst_a->tail->nb > lst_b->head->nb)
+			{
+				write(1, "rra\n", 4);
+				rra(&lst_a);
+			}
+/*		while (lst_a->head->nb < lst_b->head->nb)
 		{
 			if (get_lowest_operation(lst_a, lst_b->head->nb) == 1)
 			{
@@ -120,7 +192,7 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 				write(1, "rra\n", 4);
 				rra(&lst_a);
 			}
-		}
+		}*/
 		write(1, "pa\n", 3);
 		pa(&lst_a, &lst_b);
 	}
@@ -131,7 +203,7 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 		write(1, "rra\n", 4);
 		rra(&lst_a);
 	}
-	//print_list(lst_a);
+//	print_list(lst_a);
 }
 
 int	push_swap(t_list *lst_a, t_list *lst_b, int size ,int med)
