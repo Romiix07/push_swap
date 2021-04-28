@@ -1,12 +1,20 @@
 #include "utils.h"
 
+void	get_min_max(int	*min, int *max, t_list *lst_a)
+{
+	
+}
+
 int	push_swap(t_list *lst_a, t_list *lst_b, int size ,int med)
 {
 	int	half;
 	int	sorted;
+	int	min;
+	int	max;
 
 	sorted = 0;
 	half = 0;
+	get_min_max(&min, &max, lst_a);
 	while (half < (size / 2))
 	{
 		if (lst_a->head->nb <= med)
@@ -17,7 +25,6 @@ int	push_swap(t_list *lst_a, t_list *lst_b, int size ,int med)
 		else
 			ra(&lst_a);
 	}
-	int i = 0;
 	while (sorted != 1)
 	{
 		if (((lst_a->head->nb > lst_a->head->next->nb) && (lst_a->head->nb < 100)) && ((lst_b->head->nb < lst_b->head->next->nb) && (lst_b->head->nb > -100)))
@@ -51,9 +58,6 @@ int	push_swap(t_list *lst_a, t_list *lst_b, int size ,int med)
 			}
 			sorted = 1;
 		}
-		i++;
-		if (i == 30)
-			break ;
 	}
 	print_list(lst_a);
 	print_list(lst_b);
