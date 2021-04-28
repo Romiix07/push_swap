@@ -66,7 +66,7 @@ int			where_is_lowest_nb(t_list *list)
 		++forward;
 		tmp = *tmp.next;
 	}
-	if (!tmp.next && base_nb > tmp.nb)
+	if (!tmp.next && min > tmp.nb)
 		++forward;
 	return (forward == 0 ? 1 : where_is_min_backward(list, forward, min));
 }

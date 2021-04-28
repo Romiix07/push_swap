@@ -194,11 +194,20 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 		pa(&lst_a, &lst_b);
 	}
 //	print_list(lst_a);
-//	return ;
+//	return;
+	int x = where_is_lowest_nb(lst_a);
 	while (is_sorted(lst_a) != 1)
 	{
-		write(1, "rra\n", 4);
-		rra(&lst_a);
+		if (x == 1)
+		{
+			write(1, "ra\n", 3);
+			ra(&lst_a);
+		}
+		else
+		{
+			write(1, "rra\n", 4);
+			rra(&lst_a);
+		}
 	}
 //	print_list(lst_a);
 }
