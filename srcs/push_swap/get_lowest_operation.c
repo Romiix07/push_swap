@@ -53,7 +53,7 @@ static int	get_backward_op(t_list *list, int forward, int nb)
 	}
 	if (nb != tmp.nb)
 		++backward;
-	printf("fw = %d, bc = %d\n", forward, backward);
+//	printf("fw = %d, bc = %d\n", forward, backward);
 	return (backward < forward ? -1 : 1);
 }
 
@@ -64,9 +64,9 @@ int	get_lowest_operation(t_list *list, int nb)
 	int		min;
 
 	min = get_lower_nb(list, nb);
-	printf("nb = %d, min = %d\n", nb, min);
-	write(1, "printing\n", 9);
-	print_list(list);
+//	printf("nb = %d, min = %d\n", nb, min);
+//	write(1, "printing\n", 9);
+//	print_list(list);
 	forward = 0;
 	tmp = *list->head;
 	while (tmp.next)

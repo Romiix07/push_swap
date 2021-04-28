@@ -144,9 +144,9 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 		rb(&lst_b);
 		if (lst_b->head->nb > lst_a->tail->nb)
 		{
-			write(1, "ra\n", 3);
+		//	write(1, "ra\n", 3);
 			pa(&lst_a, &lst_b);
-			ra(&lst_a);
+		//	ra(&lst_a);
 		}
 		else
 			pa(&lst_a, &lst_b);
