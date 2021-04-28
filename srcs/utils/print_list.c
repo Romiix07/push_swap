@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:19:00 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:45:39 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/20 16:26:23 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	print_list(t_list *list)
 		return ;
 	if (list->head)
 		tmp = *list->head;
+	else
+	{
+		write(1, "NULL List\n", 10);
+		return ;
+	}
 	while (tmp.next)
 	{
 		ft_putnbr(tmp.nb);
