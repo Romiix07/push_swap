@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/28 17:24:26 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/28 18:37:01 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	get_backward_op(t_list *list, int forward, int nb)
 	t_node	tmp;
 	int		backward;
 
-	backward = 1;
+	backward = 0;
 	tmp = *list->tail;
 	while (tmp.prev)
 	{
@@ -40,7 +40,7 @@ int	get_lowest_operation(t_list *list, int nb)
 
 	//	printf("%d\n", nb);
 	//	write(1, "printing\n", 9);
-//	print_list(list);
+	//	print_list(list);
 	forward = 0;
 	tmp = *list->head;
 	while (tmp.next)
@@ -50,9 +50,7 @@ int	get_lowest_operation(t_list *list, int nb)
 		++forward;
 		tmp = *tmp.next;
 	}
-	if (!tmp.next && nb < tmp.nb)
-		forward = 0;
-	else if (!tmp.next && nb > tmp.nb)
+	if (!tmp.next && nb > tmp.nb)
 		++forward;
 	return (forward == 0 ? 1 : get_backward_op(list, forward, nb));
 }
