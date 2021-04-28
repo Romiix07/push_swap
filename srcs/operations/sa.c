@@ -6,11 +6,24 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 16:50:07 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/28 18:29:51 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+static void	sa_same(t_list **lista)
+{
+	t_node	*node;
+
+	node = (*lista)->head;
+	(*lista)->head = (*lista)->tail;
+	(*lista)->tail = node;
+	(*lista)->head->next = node;
+	(*lista)->head->prev = NULL;
+	node->next = NULL;
+	node->prev = (*lista)->head;
+}
 
 void	sa(t_list **lista)
 {
@@ -23,6 +36,8 @@ void	sa(t_list **lista)
 		return ;
 	if ((*lista)->head->nb == (*lista)->tail->nb)
 		return ;
+	if ((*lista)->head->next->nb == (*lista)->tail->nb)
+		return (sa_same(lista));
 	node = (*lista)->head->next;
 	(*lista)->head->next = node->next;
 	(*lista)->head->prev = node;

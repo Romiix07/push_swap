@@ -6,13 +6,26 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 16:49:20 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/28 18:28:12 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	sb(t_list **listb)
+static void	sb_same(t_list **listb)
+{
+	t_node	*node;
+
+	node = (*listb)->head;
+	(*listb)->head = (*listb)->tail;
+	(*listb)->tail = node;
+	(*listb)->head->next = node;
+	(*listb)->head->prev = NULL;
+	node->next = NULL;
+	node->prev = (*listb)->head;
+}
+
+void		sb(t_list **listb)
 {
 	t_node	*node;
 
@@ -23,6 +36,8 @@ void	sb(t_list **listb)
 		return ;
 	if ((*listb)->head->nb == (*listb)->tail->nb)
 		return ;
+	if ((*listb)->head->next->nb == (*listb)->tail->nb)
+		return (sb_same(listb));
 	node = (*listb)->head->next;
 	(*listb)->head->next = node->next;
 	(*listb)->head->prev = node;
