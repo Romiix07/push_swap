@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:55:47 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/16 13:07:16 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/28 12:56:21 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,83 @@ static int	check_arg(char *s)
 	if (!ft_strcmp(s, "") || !ft_strcmp(s, "-"))
 		return (0);
 	nb = 0;
-	i = -1;
-	sign = s[0] == '-' ? -1 : 1;
-	if (s[0] == '-' || s[0] == '+')
+	i = 0;
+	while (s[i] == ' ' || s[i] == '\t')
 		++i;
-	while (s[++i] != 0)
+	sign = s[i] == '-' ? -1 : 1;
+	if (s[i] == '-' || s[i] == '+')
+		++i;
+	if (!ft_isdigit(s[i]) && (s[i] || (i > 0 && (s[i - 1] == '-'
+												|| s[i - 1] == '+'))))
 	{
-		if (!ft_isdigit(s[i]))
-			return (0);
+		printf("notadigit-> '%c'\n", s[i]);
+		return (0);
+	}
+	while (ft_isdigit(s[i]))
+	{
 		nb = nb * 10 + s[i] - '0';
 		if (nb > 2147463648 || (nb > 2147483647 && sign == 1))
 			return (0);
+		++i;
 	}
 	nb *= sign;
-	return (1);
+	return (s[i] == 0 ? 1 : check_arg(&s[i]));
 }
 
 int			fill_tab(int ac, char **av, int **tab)
 {
 	int	i;
+	int	j;
+	int	count;
 
 	i = 0;
+	count = -1;
 	while (++i < ac)
 	{
-		if (!check_arg(av[i]))
-			return (0);
-		(*tab)[i - 1] = ft_atoi(av[i]);
+		j = 0;
+		while (av[i][j])
+		{
+			if (!check_arg(&av[i][j]))
+				return (0);
+			(*tab)[++count] = ft_atoi(&av[i][j]);
+			if (av[i][j] == '-' || av[i][j] == '+')
+				++j;
+			while (ft_isdigit(av[i][j]))
+				++j;
+			while (av[i][j] == ' ' || av[i][j] == '\t')
+				++j;
+		}
 	}
-	if (!check_duplicate(*tab, ac))
+	if (!check_duplicate(*tab, get_tab_size(ac, av)))
 		return (0);
 	return (1);
+}
+
+int			get_tab_size(int ac, char **av)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	if (av[1][0] != 0 && av[1][0] == '-' && !ft_isdigit(av[1][1]))
+		++i;
+	while (++i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if (av[i][j] == '-' || av[i][j] == '+')
+				++j;
+			if (!ft_isdigit(av[i][j]))
+				return (-1);
+			++count;
+			while (ft_isdigit(av[i][j]))
+				++j;
+			while (av[i][j] == ' ' || av[i][j] == '\t')
+				++j;
+		}
+	}
+	return (count);
 }

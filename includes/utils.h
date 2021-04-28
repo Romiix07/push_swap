@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:31:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 16:38:20 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/28 12:06:17 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_list {
 size_t			ft_strlen(const char *s);
 int				ft_isdigit(int c);
 int				ft_atoi(const char *str);
+int				get_tab_size(int ac, char **av);
 int				fill_tab(int ac, char **av, int **tab);
 int				return_error(char *str);
 int				ft_strcmp(const char *s1, const char *s2);
