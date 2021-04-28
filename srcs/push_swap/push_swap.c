@@ -156,48 +156,45 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 //	return ;
 	while (i < 2)
 	{
-		print_list(lst_a);
+//		print_list(lst_a);
 		i++;
 		int w;
-//		if (lst_b->head)
-			w = get_lowest_operation(lst_a, lst_b->head->nb);
-		printf("%d\n", w);
-		if (w == 1)
-			while (lst_a->head->nb < lst_b->head->nb)
+		w = get_lowest_operation(lst_a, lst_b->head->nb);
+//		printf("%d\n", w);
+		if (!(lst_b->head->nb < lst_a->head->nb && lst_b->head->nb > lst_a->tail->nb))
+		{	
+			if (w == 1)
 			{
-				write(1, "ra\n", 3);
-				ra(&lst_a);
-			//	break;
-			}
-		else
-		//	while (lst_a->tail->nb < lst_b->head->nb)
-		//	{
-		//		write(1, "rra\n", 4);
-		//		rra(&lst_a);
-		//	}
-			while (lst_a->tail->nb > lst_b->head->nb)
-			{
-				write(1, "rra\n", 4);
-				rra(&lst_a);
-			}
-/*		while (lst_a->head->nb < lst_b->head->nb)
-		{
-			if (get_lowest_operation(lst_a, lst_b->head->nb) == 1)
-			{
-				write(1, "ra\n", 3);
-				ra(&lst_a);
+				while (lst_a->head->nb > lst_b->head->nb)
+				{
+					write(1, "ra\n", 3);
+					ra(&lst_a);
+				}
+				while (lst_a->head->nb < lst_b->head->nb)
+				{
+					write(1, "ra\n", 3);
+					ra(&lst_a);
+				}
 			}
 			else
 			{
-				write(1, "rra\n", 4);
-				rra(&lst_a);
+				while (lst_a->tail->nb < lst_b->head->nb)
+				{
+					write(1, "rra\n", 4);
+					rra(&lst_a);
+				}
+				while (lst_a->tail->nb > lst_b->head->nb)
+				{
+					write(1, "rra\n", 4);
+					rra(&lst_a);
+				}
 			}
-		}*/
+		}
 		write(1, "pa\n", 3);
 		pa(&lst_a, &lst_b);
 	}
-	print_list(lst_a);
-	return ;
+//	print_list(lst_a);
+//	return ;
 	while (is_sorted(lst_a) != 1)
 	{
 		write(1, "rra\n", 4);
