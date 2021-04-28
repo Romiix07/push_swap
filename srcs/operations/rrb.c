@@ -16,9 +16,9 @@ void	rrb(t_list **listb)
 {
 	t_node	*node;
 
-	write(1, "rrb\n", 4);
-	write(1, "\tlistbefore: ", 13);
-	print_list(*listb);
+//	write(1, "rrb\n", 4);
+//	write(1, "\tlistbefore: ", 13);
+//	print_list(*listb);
 	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
 		return ;
 	if ((*listb)->tail->nb == (*listb)->head->nb)
@@ -33,6 +33,6 @@ void	rrb(t_list **listb)
 	node->prev = NULL;
 	(*listb)->head = node;
 
-	write(1, "\tlistbafter: ", 13);
-	print_list(*listb);
+//	write(1, "\tlistbafter: ", 13);
+//	print_list(*listb);
 }

@@ -16,7 +16,7 @@ void	rra(t_list **lista)
 {
 	t_node	*node;
 
-	write(1, "rra\n", 4);
+//	write(1, "rra\n", 4);
 	if (!lista || !*lista || !(*lista)->head || !(*lista)->tail)
 		return ;
 	if ((*lista)->tail->nb == (*lista)->head->nb)
