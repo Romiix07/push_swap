@@ -34,7 +34,7 @@ static int	get_backward_op(t_list *list, int forward, int nb)
 	return (backward < forward ? -1 : 1);
 }
 
-int	get_lowest_operation_op(t_list *list, int nb)
+int	get_lowest_operation(t_list *list, int nb)
 {
 	t_node	tmp;
 	int		forward;
@@ -53,3 +53,4 @@ int	get_lowest_operation_op(t_list *list, int nb)
 	else if (!tmp.next && nb > tmp.nb)
 		++forward;
 	return (forward == 0 ? 1 : get_backward_op(list, forward, nb));
+}

@@ -1,4 +1,6 @@
 #include "utils.h"
+#include "push_swap.h"
+#include "unistd.h"
 
 void	get_min_max(int	*min, int *max, t_list *lst_a)
 {
@@ -52,32 +54,99 @@ void	three_swap(t_list *lst)
 	}
 }
 
+void	four_swap(t_list *lst_a, t_list *lst_b)
+{
+	write(1, "pb\n", 3);
+	pb(&lst_a, &lst_b);
+	if (is_sorted(lst_a) != 1)
+		three_swap(lst_a);
+	if (lst_b->head->nb < lst_a->head->nb)
+	{
+		write(1, "pa\n", 3);
+		pa(&lst_a, &lst_b);
+	}
+	else if (lst_b->head->nb > lst_a->tail->nb)
+	{
+		write(1, "pa\nra\n", 6);
+		pa(&lst_a, &lst_b);
+		ra(&lst_a);
+	}
+	else
+	{
+		while (lst_a->head->nb < lst_b->head->nb)
+		{
+			write(1, "ra\n", 3);
+			ra(&lst_a);
+		}
+		write(1, "pa\n", 3);
+		pa(&lst_a, &lst_b);
+	}
+	while (is_sorted(lst_a) != 1)
+	{
+		write(1, "rra\n", 4);
+		rra(&lst_a);
+	}
+//	print_list(lst_a);
+}
+
 void	five_swap(t_list *lst_a, t_list *lst_b)
 {
 	int i = 0;
+	int count = 0;
 	write(1, "pb\npb\n", 6);
 	pb(&lst_a, &lst_b);
 	pb(&lst_a, &lst_b);
-	three_swap(lst_a);
-	print_list(lst_b);
+	if (is_sorted(lst_a) != 1)
+		three_swap(lst_a);
+	if (lst_b->head->nb < lst_a->head->nb || lst_b->head->nb > lst_a->tail->nb)
+	{
+			write(1, "pa\n", 3);
+			pa(&lst_a, &lst_b);
+			i++;
+	}
 	while (i < 2)
 	{
+		print_list(lst_a);
 		i++;
-		write("%d\n", lst_b->head->nb);
+		while (lst_a->head->nb < lst_b->head->nb)
+		{
+			if (get_lowest_operation(lst_a, lst_b->head->nb) == 1)
+			{
+				write(1, "ra\n", 3);
+				ra(&lst_a);
+			}
+			else
+			{
+				write(1, "rra\n", 4);
+				rra(&lst_a);
+			}
+		}
+		write(1, "pa\n", 3);
+		pa(&lst_a, &lst_b);
 	}
+	print_list(lst_a);
+	return ;
+	while (is_sorted(lst_a) != 1)
+	{
+		write(1, "rra\n", 4);
+		rra(&lst_a);
+	}
+	//print_list(lst_a);
 }
 
 int	push_swap(t_list *lst_a, t_list *lst_b, int size ,int med)
 {
 	if (is_sorted(lst_a) == 1)
-		return ;
+		return (0);
 	if (size == 2)
 	{
 		write(1, "sa\n", 3);
-		sa(lst_a);
+		sa(&lst_a);
 	}
 	if (size == 3)
 		three_swap(lst_a);
+	if (size == 4)
+		four_swap(lst_a, lst_b);
 	if (size == 5)
 		five_swap(lst_a, lst_b);
 }

@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 	if (read_and_exec_lines(&lista, &listb) == 0)
 		return (write(2, "Error\n", 6));
 	//	print_list(lista);
-	if (is_sorted(lista) == 0 || listb->head)
+	if (is_sorted(lista) == 0 /*|| listb->head*/)
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);

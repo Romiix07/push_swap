@@ -27,8 +27,8 @@ void	rrb(t_list **listb)
 	(*listb)->tail = (*listb)->tail->prev;
 	(*listb)->tail->next = NULL;
 	(*listb)->head->prev = node;
-	printf("node = %d\n", node->nb);
-	printf("tail = %d\n", (*listb)->tail->nb);
+//	printf("node = %d\n", node->nb);
+//	printf("tail = %d\n", (*listb)->tail->nb);
 	node->next = (*listb)->head;
 	node->prev = NULL;
 	(*listb)->head = node;

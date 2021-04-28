@@ -34,7 +34,7 @@ static int	get_backward(t_list *list, int forward, int base_nb)
 	return (backward < forward ? -1 : 1);
 }
 
-int	get_closest_nb(t_list *list)
+int	get_closest_nb(t_list *list, int max)
 {
 	t_node	tmp;
 	int		forward;
@@ -42,7 +42,7 @@ int	get_closest_nb(t_list *list)
 
 	forward = 0;
 	tmp = *list->head;
-	base_nb = tmp.nb;
+	base_nb = max;
 	while (tmp.next)
 	{
 		if (base_nb > tmp.nb)
