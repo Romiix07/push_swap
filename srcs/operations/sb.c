@@ -16,7 +16,7 @@ void	sb(t_list **listb)
 {
 	t_node	*node;
 
-	write(1, "sb\n", 3);
+//	write(1, "sb\n", 3);
 	if (!listb || !*listb)
 		return ;
 	if (!(*listb)->head || !(*listb)->head->next)
@@ -32,6 +32,6 @@ void	sb(t_list **listb)
 	node->next = (*listb)->head;
 	(*listb)->head = node;
 
-	write(1, "\tlistb: ", 8);
-	print_list(*listb);
+/*	write(1, "\tlistb: ", 8);
+	print_list(*listb);*/
 }

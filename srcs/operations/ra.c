@@ -16,7 +16,7 @@ void	ra(t_list **lista)
 {
 	t_node	*node;
 
-	write(1, "ra\n", 3);
+//	write(1, "ra\n", 3);
 	if (!lista || !*lista || !(*lista)->head || !(*lista)->tail)
 		return ;
 	if ((*lista)->head->nb == (*lista)->tail->nb)
@@ -29,6 +29,6 @@ void	ra(t_list **lista)
 	(*lista)->tail->next = node;
 	(*lista)->tail = node;
 	
-	write(1, "\tlista: ", 8);
-	print_list(*lista);
+/*	write(1, "\tlista: ", 8);
+	print_list(*lista);*/
 }

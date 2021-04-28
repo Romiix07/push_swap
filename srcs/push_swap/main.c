@@ -36,8 +36,8 @@ int	main(int ac, char **av)
 		return (0);
 	convert(tab, &lista, ac - 1);
 	free(tab);
-	med = median(lista, 10);
-	push_swap(lista, listb, 10, med);
+	med = median(lista, (ac - 1));
+	push_swap(lista, listb, (ac - 1), med);
 	free_list(&lista);
 	free_list(&listb);
 	return (1);

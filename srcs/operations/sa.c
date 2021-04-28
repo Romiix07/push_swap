@@ -16,7 +16,7 @@ void	sa(t_list **lista)
 {
 	t_node	*node;
 
-	write(1, "sa\n", 3);
+//	write(1, "sa\n", 3);
 	if (!lista || !*lista)
 		return ;
 	if (!(*lista)->head || !(*lista)->head->next)
@@ -32,6 +32,6 @@ void	sa(t_list **lista)
 	node->next = (*lista)->head;
 	(*lista)->head = node;
 
-	write(1, "\tlista: ", 8);
-	print_list(*lista);
+/*	write(1, "\tlista: ", 8);
+	print_list(*lista);*/
 }

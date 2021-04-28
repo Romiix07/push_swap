@@ -16,7 +16,7 @@ void	rb(t_list **listb)
 {
 	t_node	*node;
 
-	write(1, "rb\n", 3);
+//	write(1, "rb\n", 3);
 	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
 		return ;
 	if ((*listb)->head->nb == (*listb)->tail->nb)
@@ -29,6 +29,6 @@ void	rb(t_list **listb)
 	(*listb)->tail->next = node;
 	(*listb)->tail = node;
 
-	write(1, "\tlistb: ", 8);
-	print_list(*listb);
+/*	write(1, "\tlistb: ", 8);
+	print_list(*listb);*/
 }

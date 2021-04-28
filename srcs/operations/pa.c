@@ -16,7 +16,7 @@ void	pa(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
-	write(1, "pa\n", 3);
+//	write(1, "pa\n", 3);
 	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
 		return ;
 	node = (*listb)->head;
@@ -37,9 +37,9 @@ void	pa(t_list **lista, t_list **listb)
 	(*lista)->head = node;
 	if (!(*lista)->tail)
 		(*lista)->tail = node;
-
+/*
 	write(1, "\tlistb: ", 8);
 	print_list(*listb);
 	write(1, "\tlista: ", 8);
-	print_list(*lista);
+	print_list(*lista);*/
 }
