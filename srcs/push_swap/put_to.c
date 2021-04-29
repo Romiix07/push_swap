@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 15:15:40 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/29 15:43:49 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/29 15:51:30 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	get_backward_tail(t_list *list, int forward, int base_nb)
 		++backward;
 		tmp = *tmp.prev;
 	}
-	if (nb != tmp.nb)
+	if (base_nb != tmp.nb)
 		++backward;
 	return (backward < forward ? -1 : 1);
 }
