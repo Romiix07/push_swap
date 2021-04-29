@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 16:19:17 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/29 15:06:07 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/29 15:23:46 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int		get_lowest_operation(t_list *list, int nb);
 int		where_is_lowest_nb(t_list *list);
 int		get_nth_nb(t_list *list, int n);
 int		get_up_down(t_list *list, int ref, int *max, int *min);
+int		put_to_head(t_list *list, int nb);
+int		put_to_tail(t_list *list, int nb);
 
 #endif
