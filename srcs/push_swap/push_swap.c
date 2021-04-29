@@ -225,10 +225,15 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 	chunk_size = 0;
 	up = 0;
 	down = 0;
-	while (sorted == 0)
+	while (size > 0 || chunk_size > 0)
 	{
+	//	print_list(lst_a);
+	//	print_list(lst_b);
 		if (chunk_size == 0)
 		{
+	//		if (size == 0)
+	//			return ;
+			size -= 20;
 			chunk_size = 20;
 			max_chunk = get_nth_nb(lst_a, 20);
 		}
@@ -251,10 +256,11 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 		}
 		if (lst_b->head != NULL)
 		{
-			if (get_up_down(lst_b, lst_a->head->nb, &down, &up) <= 0)
+			if (get_up_down(lst_b, lst_a->head->nb, &up, &down) <= 0)
 			{
 				if (put_to_head(lst_b, down) == 1)
 				{
+					printf("%d\n", down);
 					while (lst_b->head->nb != down)
 					{
 						write(1, "rb\n", 3);
@@ -294,6 +300,25 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 		pb(&lst_a, &lst_b);
 		chunk_size--;
 	}
+	while (lst_b->head)
+	{
+		write(1, "pa\n", 3);
+		pa(&lst_a, &lst_b);
+	}
+	int x = where_is_lowest_nb(lst_a);
+	while (is_sorted(lst_a) != 1)
+	{
+		if (x == 1)
+		{
+			write(1, "ra\n", 3);
+			ra(&lst_a);
+		}
+		else
+		{
+			write(1, "rra\n", 4);
+			rra(&lst_a);
+		}
+	}
 }
 
 int	push_swap(t_list *lst_a, t_list *lst_b, int size ,int med)
@@ -313,4 +338,6 @@ int	push_swap(t_list *lst_a, t_list *lst_b, int size ,int med)
 		five_swap(lst_a, lst_b);
 	if (size == 100)
 		hundred_swap(lst_a, lst_b, size);
+//	print_list(lst_a);
+//	print_list(lst_b);
 }
