@@ -6,24 +6,25 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/29 14:48:58 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/29 15:53:08 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "utils.h"
 
-int			get_lower_nb(t_list *list, int nb)
+static int	get_lower_nb(t_list *list, int nb)
 {
 	t_node	tmp;
 	int		min;
 
 	tmp = *list->head;
+	min = tmp.nb;
 	while (tmp.next)
 	{
-		min = tmp.nb;
 		if (tmp.nb < nb)
 			break ;
+		min = tmp.nb;
 		tmp = *tmp.next;
 	}
 	while (tmp.next)
@@ -53,7 +54,7 @@ static int	get_backward_op(t_list *list, int forward, int nb)
 	}
 	if (nb != tmp.nb)
 		++backward;
-//	printf("fw = %d, bc = %d\n", forward, backward);
+	//	printf("fw = %d, bc = %d\n", forward, backward);
 	return (backward < forward ? -1 : 1);
 }
 
@@ -70,7 +71,7 @@ int	get_lowest_operation(t_list *list, int nb)
 	forward = 0;
 	tmp = *list->head;
 	if (min == tmp.nb)
-		return (0)
+		return (0);
 	while (tmp.next)
 	{
 		if (min == tmp.nb)
