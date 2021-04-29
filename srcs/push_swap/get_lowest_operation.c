@@ -6,14 +6,14 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/28 19:33:41 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/29 14:41:33 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "utils.h"
 
-static int	get_lower_nb(t_list *list, int nb)
+int			get_lower_nb(t_list *list, int nb)
 {
 	t_node	tmp;
 	int		min;
