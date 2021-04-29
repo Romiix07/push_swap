@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:55:05 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/29 14:30:52 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/29 16:08:20 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int			get_nth_nb(t_list *list, int n)
 	{
 		tab[i] = tmp.nb;
 		max = max < tmp.nb ? tmp.nb : max;
-		tmp = *tmp.next;
+		if (tmp.next)
+			tmp = *tmp.next;
 	}
 	while (tmp.next)
 	{
