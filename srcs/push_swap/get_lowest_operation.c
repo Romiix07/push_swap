@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/29 14:41:33 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/29 14:48:58 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	get_lowest_operation(t_list *list, int nb)
 //	print_list(list);
 	forward = 0;
 	tmp = *list->head;
+	if (min == tmp.nb)
+		return (0)
 	while (tmp.next)
 	{
 		if (min == tmp.nb)
