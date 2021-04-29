@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 15:15:40 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/29 15:23:12 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/29 15:43:49 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	get_backward_tail(t_list *list, int forward, int base_nb)
 
 	backward = 0;
 	tmp = *list->tail;
-	if (tmp.nb == nb)
+	if (tmp.nb == base_nb)
 		return (0);
 	while (tmp.prev)
 	{
@@ -50,7 +50,7 @@ int			put_to_tail(t_list *list, int nb)
 	}
 	if (nb != tmp.nb)
 		++forward;
-	return (get_backward_tail(list, forward, base_nb));
+	return (get_backward_tail(list, forward, nb));
 }
 
 static int	get_backward_head(t_list *list, int forward, int base_nb)
@@ -67,7 +67,7 @@ static int	get_backward_head(t_list *list, int forward, int base_nb)
 		++backward;
 		tmp = *tmp.prev;
 	}
-	if (nb != tmp.nb)
+	if (base_nb != tmp.nb)
 		++backward;
 	return (backward < forward ? -1 : 1);
 }
@@ -90,5 +90,5 @@ int			put_to_head(t_list *list, int nb)
 	}
 	if (nb != tmp.nb)
 		++forward;
-	return (get_backward_head(list, forward, base_nb));
+	return (get_backward_head(list, forward, nb));
 }
