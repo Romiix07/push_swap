@@ -43,7 +43,7 @@ void	three_swap(t_list *lst)
 	}
 	else if (lst->head->nb < lst->head->next->nb && lst->head->nb < lst->head->next->next->nb)
 	{
-		write(1, "sa\nra\n", 7);
+		write(1, "sa\nra\n", 6);
 		sa(&lst);
 		ra(&lst);
 	}
@@ -260,7 +260,7 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 			{
 				if (put_to_head(lst_b, down) == 1)
 				{
-					printf("%d\n", down);
+					//printf("%d\n", down);
 					while (lst_b->head->nb != down)
 					{
 						write(1, "rb\n", 3);
