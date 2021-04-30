@@ -233,9 +233,9 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 		{
 	//		if (size == 0)
 	//			return ;
-			size -= 20;
-			chunk_size = 20;
-			max_chunk = get_nth_nb(lst_a, 20);
+			size -= 10;
+			chunk_size = 10;
+			max_chunk = get_nth_nb(lst_a, 10);
 		}
 		direction = get_lowest_operation(lst_a, max_chunk, 1);
 		if (direction  == 1)
