@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/30 17:10:54 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/30 17:13:27 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ static int	get_lower_nb(t_list *list, int nb)
 	return (min);	
 }
 
-static int	get_backward_op(t_list *list, int forward, int nb, char tmp)
+static int	get_backward_op(t_list *list, int forward, int nb, char swtch)
 {
 	t_node	tmp;
 	int		backward;
 
 	backward = 0;
 	tmp = *list->tail;
-	if (tmp == 0 && min == tmp.nb)
+	if (swtch == 0 && min == tmp.nb)
 		return (0);
 	while (tmp.prev)
 	{
@@ -60,7 +60,7 @@ static int	get_backward_op(t_list *list, int forward, int nb, char tmp)
 	return (backward < forward ? -1 : 1);
 }
 
-int	get_lowest_operation(t_list *list, int nb, char tmp)
+int	get_lowest_operation(t_list *list, int nb, char swtch)
 {
 	t_node	tmp;
 	int		forward;
@@ -72,7 +72,7 @@ int	get_lowest_operation(t_list *list, int nb, char tmp)
 //	print_list(list);
 	forward = 0;
 	tmp = *list->head;
-	if (tmp == 1 && min == tmp.nb)
+	if (swtch == 1 && min == tmp.nb)
 		return (0);
 	while (tmp.next)
 	{
@@ -83,5 +83,5 @@ int	get_lowest_operation(t_list *list, int nb, char tmp)
 	}
 	if (min != tmp.nb)
 		++forward;
-	return (forward == 0 ? 1 : get_backward_op(list, forward, min, tmp));
+	return (forward == 0 ? 1 : get_backward_op(list, forward, min, swtch));
 }
