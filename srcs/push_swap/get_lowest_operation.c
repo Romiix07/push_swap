@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/30 17:14:27 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/04/30 17:18:32 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static int	get_backward_op(t_list *list, int forward, int nb, char swtch)
 
 	backward = 0;
 	tmp = *list->tail;
-	if (swtch == 0 && nb == tmp.nb)
-		return (0);
+	//	if (swtch == 0 && nb == tmp.nb)
+	//		return (0);
 	while (tmp.prev)
 	{
 		if (nb == tmp.nb)
@@ -72,7 +72,7 @@ int	get_lowest_operation(t_list *list, int nb, char swtch)
 //	print_list(list);
 	forward = 0;
 	tmp = *list->head;
-	if (swtch == 1 && min == tmp.nb)
+	if (min == tmp.nb)
 		return (0);
 	while (tmp.next)
 	{
