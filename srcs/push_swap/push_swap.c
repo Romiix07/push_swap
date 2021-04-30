@@ -156,11 +156,11 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 //	return ;
 	while (i < 2)
 	{
-//		print_list(lst_a);
+		print_list(lst_a);
 		i++;
 		int w;
-		w = get_lowest_operation(lst_a, lst_b->head->nb);
-//		printf("%d\n", w);
+		w = get_lowest_operation(lst_a, lst_b->head->nb, 0);
+		printf("%d\n", w);
 		if (!(lst_b->head->nb < lst_a->head->nb && lst_b->head->nb > lst_a->tail->nb))
 		{	
 			if (w == 1)
@@ -176,7 +176,7 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 					ra(&lst_a);
 				}
 			}
-			else
+			else if (w == -1)
 			{
 				while (lst_a->tail->nb < lst_b->head->nb)
 				{
@@ -193,8 +193,8 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 		write(1, "pa\n", 3);
 		pa(&lst_a, &lst_b);
 	}
-//	print_list(lst_a);
-//	return;
+	print_list(lst_a);
+	return;
 	int x = where_is_lowest_nb(lst_a);
 	while (is_sorted(lst_a) != 1)
 	{
@@ -237,7 +237,7 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 			chunk_size = 20;
 			max_chunk = get_nth_nb(lst_a, 20);
 		}
-		direction = get_lowest_operation(lst_a, max_chunk);
+		direction = get_lowest_operation(lst_a, max_chunk, 1);
 		if (direction  == 1)
 		{
 			while (lst_a->head->nb > max_chunk)
