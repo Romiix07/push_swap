@@ -92,6 +92,7 @@ void	four_swap(t_list *lst_a, t_list *lst_b)
 void	five_swap(t_list *lst_a, t_list *lst_b)
 {
 	int i = 0;
+	int	trash;
 	int count = 0;
 	write(1, "pb\npb\n", 6);
 	pb(&lst_a, &lst_b);
@@ -156,14 +157,14 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 //	return ;
 	while (i < 2)
 	{
-//		print_list(lst_a);
+		print_list(lst_a);
 		i++;
 		int w;
-		w = get_lowest_operation(lst_a, lst_b->head->nb, 0);
-//		printf("%d\n", w);
+		w = get_lowest_operation(lst_a, lst_b->head->nb, 0, &trash);
+		printf("%d\n", w);
 		if (!(lst_b->head->nb < lst_a->head->nb && lst_b->head->nb > lst_a->tail->nb))
 		{	
-			if (w == 1)
+			if (w > 0)
 			{
 				while (lst_a->head->nb > lst_b->head->nb)
 				{
@@ -176,7 +177,7 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 					ra(&lst_a);
 				}
 			}
-			else if (w == -1)
+			else if (w < 0)
 			{
 				while (lst_a->tail->nb < lst_b->head->nb)
 				{
@@ -194,7 +195,7 @@ void	five_swap(t_list *lst_a, t_list *lst_b)
 		pa(&lst_a, &lst_b);
 	}
 //	print_list(lst_a);
-//	return;
+	return;
 	int x = where_is_lowest_nb(lst_a);
 	while (is_sorted(lst_a) != 1)
 	{
@@ -220,11 +221,13 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 	int	direction;
 	int	up;
 	int	down;
+	int	target;
 
 	sorted = 0;
 	chunk_size = 0;
 	up = 0;
 	down = 0;
+	int ahah = 15;
 	while (size > 0 || chunk_size > 0)
 	{
 	//	print_list(lst_a);
@@ -233,12 +236,66 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 		{
 	//		if (size == 0)
 	//			return ;
-			size -= 10;
-			chunk_size = 10;
-			max_chunk = get_nth_nb(lst_a, 10);
+			if ((size - ahah) < 0)
+				ahah = size;
+			size -= ahah;
+			chunk_size = ahah;
+			max_chunk = get_nth_nb(lst_a, ahah);
 		}
-		direction = get_lowest_operation(lst_a, max_chunk, 1);
-		if (direction  == 1)
+		direction = get_lowest_operation(lst_a, max_chunk, 1, &target);
+		if (direction > 0 && lst_b->head != NULL)
+		{
+	//		write(1, "abcd\n", 5);
+			if (get_up_down(lst_b, target, &up, &down) <= 0)
+			{
+				if (put_to_head(lst_b, down) > 0)
+				{
+					while (lst_b->head->nb != down && lst_a->head->nb > max_chunk)
+					{
+						write(1, "rr\n", 3);
+						rr(&lst_a, &lst_b);
+					}
+				}
+			}
+			if (get_up_down(lst_b, target, &up, &down) > 0)
+			{
+				if (put_to_tail(lst_b, up) > 0)
+				{
+					while(lst_b->head->nb != up && lst_a->head->nb > max_chunk)
+					{
+						write(1, "rr\n", 3);
+						rr(&lst_a, &lst_b);
+					}
+				}
+			}
+		}
+		if (direction < 0 && lst_b->head != NULL)
+		{
+	//		write(1, "abcd\n", 5);
+			if (get_up_down(lst_b, target, &up, &down) <= 0)
+			{
+				if (put_to_head(lst_b, down) < 0)
+				{
+					while (lst_b->head->nb != down && lst_a->head->nb > max_chunk)
+					{
+						write(1, "rrr\n", 4);
+						rrr(&lst_a, &lst_b);
+					}
+				}
+			}
+			if (get_up_down(lst_b, target, &up, &down) > 0)
+			{
+				if (put_to_tail(lst_b, up) < 0)
+				{
+					while (lst_b->head->nb != up && lst_a->head->nb > max_chunk)
+					{
+						write(1, "rrr\n", 4);
+						rrr(&lst_a, &lst_b);
+					}
+				}
+			}
+		}
+		if (direction > 0)
 		{
 			while (lst_a->head->nb > max_chunk)
 			{
@@ -246,7 +303,7 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 				ra(&lst_a);
 			}
 		}
-		else if (direction == -1)
+		else if (direction < 0)
 		{
 			while (lst_a->head->nb > max_chunk)
 			{
@@ -258,7 +315,7 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 		{
 			if (get_up_down(lst_b, lst_a->head->nb, &up, &down) <= 0)
 			{
-				if (put_to_head(lst_b, down) == 1)
+				if (put_to_head(lst_b, down) > 0)
 				{
 					//printf("%d\n", down);
 					while (lst_b->head->nb != down)
@@ -267,7 +324,7 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 						rb(&lst_b);
 					}
 				}
-				else if (put_to_head(lst_b, down) == -1)
+				else if (put_to_head(lst_b, down) < 0)
 				{
 					while (lst_b->head->nb != down)
 					{
@@ -278,7 +335,7 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 			}
 			else
 			{
-				if (put_to_tail(lst_b, up) == 1)
+				if (put_to_tail(lst_b, up) > 0)
 				{
 					while (lst_b->tail->nb != up)
 					{
@@ -286,7 +343,7 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 						rb(&lst_b);
 					}
 				}
-				else if (put_to_tail(lst_b, up) == -1)
+				else if (put_to_tail(lst_b, up) < 0)
 				{
 					while (lst_b->tail->nb != up)
 					{
@@ -336,7 +393,7 @@ int	push_swap(t_list *lst_a, t_list *lst_b, int size ,int med)
 		four_swap(lst_a, lst_b);
 	if (size == 5)
 		five_swap(lst_a, lst_b);
-	if (size == 100)
+	if (size > 5)
 		hundred_swap(lst_a, lst_b, size);
 //	print_list(lst_a);
 //	print_list(lst_b);
