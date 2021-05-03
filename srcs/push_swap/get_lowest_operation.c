@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/03 11:58:37 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:28:09 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,24 @@
 
 static int	get_lower_nb(t_list *list, int nb)
 {
-	t_node	tmp;
+	t_node	*tmp;
 	int		min;
 
-	tmp = *list->head;
-	min = tmp.nb;
-	while (tmp.next)
+	tmp = list->head;
+	while (tmp)
 	{
-		if (tmp.nb < nb)
+		min = tmp->nb;
+		//		printf("min = %d\n", min);
+		if (tmp->nb < nb)
 			break ;
-		min = tmp.nb;
-		tmp = *tmp.next;
+		tmp = tmp->next;
 	}
-	while (tmp.next)
+	while (tmp)
 	{
-		if (tmp.nb > min && tmp.nb < nb)
-			min = tmp.nb;
-		tmp = *tmp.next;
+		if (tmp->nb > min && tmp->nb < nb)
+			min = tmp->nb;
+		tmp = tmp->next;
 	}
-	if (tmp.nb > min && tmp.nb < nb)
-		min = tmp.nb;
 	return (min);
 }
 
@@ -68,9 +66,9 @@ int	get_lowest_operation(t_list *list, int nb, char swtch, int *min_returned)
 
 	min = get_lower_nb(list, nb);
 	*min_returned = min;
-//	printf("nb = %d, min = %d\n", nb, min);
-//	write(1, "printing\n", 9);
-//	print_list(list);
+	//	printf("list: ");
+	//	print_list(list);
+	//	printf("nb = %d, returned = %d\n\n", nb, min);
 	forward = 0;
 	tmp = *list->head;
 	if (swtch == 1 && min == tmp.nb)
