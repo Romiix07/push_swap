@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:31:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/28 12:06:17 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/03 12:02:32 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int				is_rev_sorted(t_list *lista);
 int				is_sorted(t_list *lista);
 int				median(t_list *list_a, int size);
 int				push_swap(t_list *list_a, t_list *list_b, int size, int med);
+int				lst_size(t_list *list);
 
 void	sa(t_list **lista);
 void	sb(t_list **listb);

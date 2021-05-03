@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/03 11:02:03 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/03 11:58:37 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	get_backward_op(t_list *list, int forward, int nb, char swtch)
 	t_node	tmp;
 	int		backward;
 
-	backward = 0;
+	backward = 1;
 	tmp = *list->tail;
 	if (swtch == 0 && nb == tmp.nb)
 		return (0);
@@ -57,7 +57,7 @@ static int	get_backward_op(t_list *list, int forward, int nb, char swtch)
 	if (nb != tmp.nb)
 		++backward;
 	//	printf("fw = %d, bc = %d\n", forward, backward);
-	return (backward < forward ? -1 : 1);
+	return (backward < forward ? -backward : forward);
 }
 
 int	get_lowest_operation(t_list *list, int nb, char swtch, int *min_returned)
@@ -84,5 +84,5 @@ int	get_lowest_operation(t_list *list, int nb, char swtch, int *min_returned)
 	}
 	if (min != tmp.nb)
 		++forward;
-	return (forward == 0 ? 1 : get_backward_op(list, forward, min, swtch));
+	return (forward == 0 ? 0 : get_backward_op(list, forward, min, swtch));
 }
