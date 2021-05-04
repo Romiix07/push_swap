@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   median.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/04 15:18:45 by rmouduri          #+#    #+#             */
+/*   Updated: 2021/05/04 15:18:59 by rmouduri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "utils.h"
 
 int	median(t_list *lst_a, int size)
 {
-	int	ret;
-	int	min;
-	int	count;
+	int		ret;
+	int		min;
+	int		count;
 	t_node	tmp;
 
 	count = 0;

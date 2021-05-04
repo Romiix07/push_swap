@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 14:56:29 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:23:17 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 15:18:36 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+void		ft_putnbr(int nb)
 {
 	if (nb < 0 && nb != -2147483648)
 	{

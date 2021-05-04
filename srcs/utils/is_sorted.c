@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:19:00 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 16:51:22 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 15:18:24 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_sorted(t_list *lista)
 		tmp = *tmp.next;
 	}
 	if (nb > tmp.nb)
-			return (0);
+		return (0);
 	return (1);
 }
 
@@ -53,6 +53,6 @@ int	is_rev_sorted(t_list *lista)
 		tmp = *tmp.next;
 	}
 	if (nb < tmp.nb)
-			return (0);
+		return (0);
 	return (1);
 }
