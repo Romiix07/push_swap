@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 14:42:06 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 13:52:38 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 13:54:54 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	get_backward(t_list *list, int forward, int base_nb, int *target)
 	return (backward < forward ? -backward : forward);
 }
 
-int	get_closest_nb(t_list *list, int max, int *target)
+int			get_closest_nb(t_list *list, int max, int *target)
 {
 	t_node	*tmp;
 	int		forward;
@@ -50,5 +50,5 @@ int	get_closest_nb(t_list *list, int max, int *target)
 	}
 	if (tmp)
 		*target = tmp->nb;
-	return (forward == 0 ? forward : get_backward(list, forward, base_nb, target));
+	return (forward == 0 ? 0 : get_backward(list, forward, base_nb, target));
 }

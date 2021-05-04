@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 16:59:41 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 15:49:58 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 16:04:29 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	get_backward_op(t_list *list, int forward, int nb, char swtch)
 	return (backward < forward ? -backward : forward);
 }
 
-int	get_lowest_operation(t_list *list, int nb, char swtch)
+int			get_lowest_operation(t_list *list, int nb, char swtch)
 {
 	t_node	tmp;
 	int		forward;

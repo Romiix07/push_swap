@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 15:04:33 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 13:38:34 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 16:04:50 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static int	get_lower_nb(t_list *list, int nb)
 	while (tmp)
 	{
 		min = tmp->nb;
-		//		printf("min = %d\n", min);
 		if (tmp->nb < nb)
 			break ;
 		tmp = tmp->next;
@@ -45,7 +44,6 @@ static int	get_bigger_nb(t_list *list, int nb)
 	while (tmp)
 	{
 		max = tmp->nb;
-		//		printf("max = %d\n", max);
 		if (tmp->nb > nb)
 			break ;
 		tmp = tmp->next;
