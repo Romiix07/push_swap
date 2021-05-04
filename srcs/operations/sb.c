@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/28 18:28:12 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:43:48 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ static void	sb_same(t_list **listb)
 	node->prev = (*listb)->head;
 }
 
-void		sb(t_list **listb)
+void		sb(t_list **listb, int write)
 {
 	t_node	*node;
 
-//	write(1, "sb\n", 3);
+	if (write)
+		write(1, "sb\n", 3);
 	if (!listb || !*listb)
 		return ;
 	if (!(*listb)->head || !(*listb)->head->next)
@@ -46,7 +47,4 @@ void		sb(t_list **listb)
 	node->prev = NULL;
 	node->next = (*listb)->head;
 	(*listb)->head = node;
-
-/*	write(1, "\tlistb: ", 8);
-	print_list(*listb);*/
 }

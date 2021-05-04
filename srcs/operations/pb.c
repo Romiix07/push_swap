@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/20 16:31:40 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:39:47 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	pb(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
-//	write(1, "pb\n", 3);
+	write(1, "pb\n", 3);
 	if (!lista || !*lista || !(*lista)->head || !(*lista)->tail)
 		return ;
 	node = (*lista)->head;
@@ -37,9 +37,4 @@ void	pb(t_list **lista, t_list **listb)
 	(*listb)->head = node;
 	if (!(*listb)->tail)
 		(*listb)->tail = node;
-	
-/*	write(1, "\tlistb: ", 8);
-	print_list(*listb);
-	write(1, "\tlista: ", 8);
-	print_list(*lista);*/
 }

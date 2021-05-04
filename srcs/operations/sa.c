@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/28 18:29:51 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:43:28 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ static void	sa_same(t_list **lista)
 	node->prev = (*lista)->head;
 }
 
-void	sa(t_list **lista)
+void	sa(t_list **lista, int write)
 {
 	t_node	*node;
 
-//	write(1, "sa\n", 3);
+	if (write)
+		write(1, "sa\n", 3);
 	if (!lista || !*lista)
 		return ;
 	if (!(*lista)->head || !(*lista)->head->next)
@@ -46,7 +47,4 @@ void	sa(t_list **lista)
 	node->prev = NULL;
 	node->next = (*lista)->head;
 	(*lista)->head = node;
-
-/*	write(1, "\tlista: ", 8);
-	print_list(*lista);*/
 }
