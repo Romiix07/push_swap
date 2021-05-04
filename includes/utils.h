@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:31:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 14:44:37 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 15:02:56 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,16 @@ int				push_swap(t_list *list_a, t_list *list_b, int size, int med);
 int				lst_size(t_list *list);
 int				abso(int nb);
 
-void	sa(t_list **lista, int write);
-void	sb(t_list **listb, int write);
-void	ss(t_list **lista, t_list **listb);
-void	pa(t_list **lista, t_list **listb);
-void	pb(t_list **lista, t_list **listb);
-void	ra(t_list **lista, int write);
-void	rb(t_list **listb, int write);
-void	rr(t_list **lista, t_list **listb);
-void	rra(t_list **lista, int write);
-void	rrb(t_list **listb, int write);
-void	rrr(t_list **lista, t_list **listb);
+void			sa(t_list **lista, int write);
+void			sb(t_list **listb, int write);
+void			ss(t_list **lista, t_list **listb);
+void			pa(t_list **lista, t_list **listb);
+void			pb(t_list **lista, t_list **listb);
+void			ra(t_list **lista, int write);
+void			rb(t_list **listb, int write);
+void			rr(t_list **lista, t_list **listb);
+void			rra(t_list **lista, int write);
+void			rrb(t_list **listb, int write);
+void			rrr(t_list **lista, t_list **listb);
 
 #endif

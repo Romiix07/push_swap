@@ -6,14 +6,14 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:58:53 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/19 12:08:18 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 15:17:57 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "utils.h"
 
-int	init_lists(t_list **list1, t_list **list2)
+int		init_lists(t_list **list1, t_list **list2)
 {
 	if (!(*list1 = malloc(sizeof(t_list))))
 		return (0);
@@ -42,7 +42,7 @@ void	free_list(t_list **list)
 	free(*list);
 }
 
-int	convert(int *tab, t_list **list, int tab_size)
+int		convert(int *tab, t_list **list, int tab_size)
 {
 	int		i;
 	t_node	*node;

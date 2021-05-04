@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:55:47 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/28 12:56:21 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 15:17:26 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ static int	check_arg(char *s)
 		++i;
 	if (!ft_isdigit(s[i]) && (s[i] || (i > 0 && (s[i - 1] == '-'
 												|| s[i - 1] == '+'))))
-	{
-		printf("notadigit-> '%c'\n", s[i]);
 		return (0);
-	}
 	while (ft_isdigit(s[i]))
 	{
 		nb = nb * 10 + s[i] - '0';
