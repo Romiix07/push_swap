@@ -44,6 +44,7 @@ int				is_sorted(t_list *lista);
 int				median(t_list *list_a, int size);
 int				push_swap(t_list *list_a, t_list *list_b, int size, int med);
 int				lst_size(t_list *list);
+int				abso(int nb);
 
 void			sa(t_list **lista, int write);
 void			sb(t_list **listb, int write);
