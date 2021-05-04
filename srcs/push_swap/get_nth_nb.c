@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:55:05 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/04/29 16:08:20 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:04:37 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,26 @@ static void	replace_tab_max(int *tab, int *max, int n, int size)
 
 int			get_nth_nb(t_list *list, int n)
 {
-	t_node	tmp;
+	t_node	*tmp;
 	int		max;
 	int		i;
 	int		tab[n];
 
 	i = -1;
-	tmp = *list->head;
-	max = tmp.nb;
+	tmp = list->head;
+	max = tmp->nb;
 	while (++i < n)
 	{
-		tab[i] = tmp.nb;
-		max = max < tmp.nb ? tmp.nb : max;
-		if (tmp.next)
-			tmp = *tmp.next;
+		tab[i] = tmp->nb;
+		max = max < tmp->nb ? tmp->nb : max;
+		//		if (tmp->next)
+		tmp = tmp->next;
 	}
-	while (tmp.next)
+	while (tmp)
 	{
-		if (tmp.nb < max)
-			replace_tab_max(&tab[0], &max, tmp.nb, n);
-		tmp = *tmp.next;
+		if (tmp->nb < max)
+			replace_tab_max(&tab[0], &max, tmp->nb, n);
+		tmp = tmp->next;
 	}
-	if (tmp.nb < max)
-		replace_tab_max(&tab[0], &max, tmp.nb, n);
 	return (max);
 }
