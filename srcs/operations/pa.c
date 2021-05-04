@@ -6,10 +6,11 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 14:38:10 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:48:47 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "utils.h"
 
 void	pa(t_list **lista, t_list **listb)

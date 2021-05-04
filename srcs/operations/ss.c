@@ -6,10 +6,11 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:55:39 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 14:44:11 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:49:53 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "utils.h"
 
 void	ss(t_list **list1, t_list **list2)

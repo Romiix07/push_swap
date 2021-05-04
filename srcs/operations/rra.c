@@ -6,17 +6,18 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:12:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 14:42:16 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:52:02 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "utils.h"
 
-void	rra(t_list **lista, int write)
+void	rra(t_list **lista, int option)
 {
 	t_node	*node;
 
-	if (write)
+	if (option == 1)
 		write(1, "rra\n", 4);
 	if (!lista || !*lista || !(*lista)->head || !(*lista)->tail)
 		return ;

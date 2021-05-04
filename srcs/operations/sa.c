@@ -6,10 +6,11 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 14:43:28 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:52:31 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "utils.h"
 
 static void	sa_same(t_list **lista)
@@ -25,11 +26,11 @@ static void	sa_same(t_list **lista)
 	node->prev = (*lista)->head;
 }
 
-void	sa(t_list **lista, int write)
+void	sa(t_list **lista, int option)
 {
 	t_node	*node;
 
-	if (write)
+	if (option == 1)
 		write(1, "sa\n", 3);
 	if (!lista || !*lista)
 		return ;

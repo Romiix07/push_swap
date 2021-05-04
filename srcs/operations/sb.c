@@ -6,10 +6,11 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:33:32 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 14:43:48 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/04 14:52:26 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "utils.h"
 
 static void	sb_same(t_list **listb)
@@ -25,11 +26,11 @@ static void	sb_same(t_list **listb)
 	node->prev = (*listb)->head;
 }
 
-void		sb(t_list **listb, int write)
+void		sb(t_list **listb, int option)
 {
 	t_node	*node;
 
-	if (write)
+	if (option == 1)
 		write(1, "sb\n", 3);
 	if (!listb || !*listb)
 		return ;
