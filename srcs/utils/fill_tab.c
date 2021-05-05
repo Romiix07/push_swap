@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:55:47 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/05 14:18:25 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/05 14:35:39 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	check_arg(char *s)
 	while (ft_isdigit(s[i]))
 	{
 		nb = nb * 10 + s[i] - '0';
-		if (nb > 2147463648 || (nb > 2147483647 && sign == 1))
+		if (nb > 2147483648 || (nb > 2147483647 && sign == 1))
 			return (0);
 		++i;
 	}
