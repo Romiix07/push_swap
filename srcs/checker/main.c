@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:00:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 15:16:36 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/05 14:12:10 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 static int	check_init_tab(int ac, char **av, int **tab)
 {
 	if (ac < 2)
-		return (return_error("Not enough arguments\n"));
+		return (return_error(0));
 	if (get_tab_size(ac, av) == -1)
 		return (return_error("Invalid numbers\n"));
 	if (!(*tab = malloc(sizeof(int) * (get_tab_size(ac, av)))))

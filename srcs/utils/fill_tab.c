@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:55:47 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 15:17:26 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/05 14:18:25 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	check_duplicate(int *tab, int ac)
 	int	j;
 
 	i = -1;
-	while (++i < ac - 1)
+	while (++i < ac)
 	{
 		j = -1;
 		while (++j < i)
