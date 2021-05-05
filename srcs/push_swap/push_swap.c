@@ -83,7 +83,7 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 	var_edit(&var, size);
 	while (size > 0 || var.loop > 0)
 	{
-		hundred_swap_1(lst_a, lst_b, &size, &var);
+		hundred_swap_1(lst_a, &size, &var);
 		if (lst_b->head != NULL)
 			hundred_swap_2(lst_a, lst_b, &var);
 		var.direction = get_closest_nb(lst_a, var.max_chunk, &var.target);
@@ -103,10 +103,10 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 	check_sort(lst_a);
 }
 
-int		push_swap(t_list *lst_a, t_list *lst_b, int size, int med)
+void	push_swap(t_list *lst_a, t_list *lst_b, int size)
 {
 	if (is_sorted(lst_a) == 1)
-		return (0);
+		return ;
 	if (size == 2)
 		sa(&lst_a, 1);
 	if (size == 3)

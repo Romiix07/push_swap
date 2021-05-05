@@ -13,7 +13,7 @@
 #include "utils.h"
 #include "push_swap.h"
 
-void	hundred_swap_1(t_list *lst_a, t_list *lst_b, int *size, t_algo *var)
+void	hundred_swap_1(t_list *lst_a, int *size, t_algo *var)
 {
 	if (var->loop == 0)
 	{

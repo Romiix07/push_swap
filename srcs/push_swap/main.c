@@ -33,7 +33,6 @@ static int	check_init_tab(int ac, char **av, int **tab)
 int			main(int ac, char **av)
 {
 	int		*tab;
-	int		med;
 	t_list	*lista;
 	t_list	*listb;
 
@@ -47,8 +46,7 @@ int			main(int ac, char **av)
 		return (return_error("Malloc of linked list\n"));
 	}
 	free(tab);
-	med = median(lista, (get_tab_size(ac, av)));
-	push_swap(lista, listb, get_tab_size(ac, av), med);
+	push_swap(lista, listb, get_tab_size(ac, av));
 	free_list(&lista);
 	free_list(&listb);
 	return (1);

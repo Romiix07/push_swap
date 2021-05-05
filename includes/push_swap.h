@@ -46,7 +46,7 @@ void			five_swap_1(t_list *lst_a, t_list *lst_b, int *i);
 void			five_swap_2(t_list *lst_a, t_list *lst_b, int *i);
 void			five_swap_3(t_list *lst_a, t_list *lst_b, int *i,
 		int direction);
-void			hundred_swap_1(t_list *lst_a, t_list *lst_b, int *size,
+void			hundred_swap_1(t_list *lst_a, int *size,
 		t_algo *var);
 void			hundred_swap_2(t_list *lst_a, t_list *lst_b, t_algo *var);
 void			hundred_swap_3(t_list *lst_a, t_list *lst_b, t_algo *var);

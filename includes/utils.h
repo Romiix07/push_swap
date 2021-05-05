@@ -42,7 +42,7 @@ void			ft_putnbr(int nb);
 int				is_rev_sorted(t_list *lista);
 int				is_sorted(t_list *lista);
 int				median(t_list *list_a, int size);
-int				push_swap(t_list *list_a, t_list *list_b, int size, int med);
+void			push_swap(t_list *list_a, t_list *list_b, int size);
 int				lst_size(t_list *list);
 int				abso(int nb);
 
