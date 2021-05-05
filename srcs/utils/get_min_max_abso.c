@@ -1,6 +1,6 @@
 #include "utils.h"
 
-int	abso(int nb)
+int		abso(int nb)
 {
 	if (nb == -2147483648)
 		return (0);
@@ -29,4 +29,3 @@ void	get_min_max(int *min, int *max, t_list *lst_a)
 	if (*min > tmp.nb)
 		*min = tmp.nb;
 }
-
