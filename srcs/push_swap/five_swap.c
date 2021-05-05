@@ -6,7 +6,7 @@
 /*   By: cmarien <cmarien@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:05:44 by cmarien           #+#    #+#             */
-/*   Updated: 2021/05/05 14:05:45 by cmarien          ###   ########.fr       */
+/*   Updated: 2021/05/05 14:32:34 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 void	five_swap_1(t_list *lst_a, t_list *lst_b, int *i)
 {
-	pb(&lst_a, &lst_b);
-	pb(&lst_a, &lst_b);
+	pb(&lst_a, &lst_b, 1);
+	pb(&lst_a, &lst_b, 1);
 	if (is_sorted(lst_a) != 1)
 		three_swap(lst_a);
 	if (lst_b->head->nb < lst_a->head->nb)
 	{
 		if (lst_b->head->nb > lst_b->head->next->nb)
 		{
-			pa(&lst_a, &lst_b);
+			pa(&lst_a, &lst_b, 1);
 			*i += 1;
 		}
-		pa(&lst_a, &lst_b);
+		pa(&lst_a, &lst_b, 1);
 		*i += 1;
 		if (*i < 2 && lst_b->head->nb > lst_a->tail->nb)
 		{
-			pa(&lst_a, &lst_b);
+			pa(&lst_a, &lst_b, 1);
 			ra(&lst_a, 1);
 			*i += 1;
 		}
@@ -43,24 +43,24 @@ void	five_swap_2(t_list *lst_a, t_list *lst_b, int *i)
 	{
 		if (lst_b->head->nb < lst_b->head->next->nb)
 		{
-			pa(&lst_a, &lst_b);
+			pa(&lst_a, &lst_b, 1);
 			ra(&lst_a, 1);
 			*i += 1;
 		}
-		pa(&lst_a, &lst_b);
+		pa(&lst_a, &lst_b, 1);
 		ra(&lst_a, 1);
 		*i += 1;
 		if (*i < 2 && lst_b->head->nb < lst_a->head->nb)
 		{
 			*i += 1;
-			pa(&lst_a, &lst_b);
+			pa(&lst_a, &lst_b, 1);
 		}
 	}
 	if (*i == 0 && (lst_b->head->next->nb > lst_a->tail->nb ||
 		lst_b->head->next->nb < lst_a->head->nb))
 	{
 		rb(&lst_b, 1);
-		pa(&lst_a, &lst_b);
+		pa(&lst_a, &lst_b, 1);
 		*i += 1;
 	}
 }
@@ -89,6 +89,6 @@ void	five_swap_3(t_list *lst_a, t_list *lst_b, int *i, int direction)
 					rra(&lst_a, 1);
 			}
 		}
-		pa(&lst_a, &lst_b);
+		pa(&lst_a, &lst_b, 1);
 	}
 }

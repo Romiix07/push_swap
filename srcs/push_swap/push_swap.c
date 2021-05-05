@@ -6,7 +6,7 @@
 /*   By: cmarien <cmarien@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:05:27 by cmarien           #+#    #+#             */
-/*   Updated: 2021/05/05 14:05:29 by cmarien          ###   ########.fr       */
+/*   Updated: 2021/05/05 14:32:46 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,21 @@ void	three_swap(t_list *lst)
 
 void	four_swap(t_list *lst_a, t_list *lst_b)
 {
-	pb(&lst_a, &lst_b);
+	pb(&lst_a, &lst_b, 1);
 	if (is_sorted(lst_a) != 1)
 		three_swap(lst_a);
 	if (lst_b->head->nb < lst_a->head->nb)
-		pa(&lst_a, &lst_b);
+		pa(&lst_a, &lst_b, 1);
 	else if (lst_b->head->nb > lst_a->tail->nb)
 	{
-		pa(&lst_a, &lst_b);
+		pa(&lst_a, &lst_b, 1);
 		ra(&lst_a, 1);
 	}
 	else
 	{
 		while (lst_a->head->nb < lst_b->head->nb)
 			ra(&lst_a, 1);
-		pa(&lst_a, &lst_b);
+		pa(&lst_a, &lst_b, 1);
 	}
 	while (is_sorted(lst_a) != 1)
 		rra(&lst_a, 1);
@@ -95,11 +95,11 @@ void	hundred_swap(t_list *lst_a, t_list *lst_b, int size)
 				rra(&lst_a, 1);
 		if (lst_b->head != NULL)
 			hundred_swap_5(lst_a, lst_b, &var);
-		pb(&lst_a, &lst_b);
+		pb(&lst_a, &lst_b, 1);
 		var.loop--;
 	}
 	while (lst_b->head)
-		pa(&lst_a, &lst_b);
+		pa(&lst_a, &lst_b, 1);
 	check_sort(lst_a);
 }
 

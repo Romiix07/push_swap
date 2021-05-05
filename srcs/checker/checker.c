@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:06:02 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 15:09:56 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/05 14:22:05 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ static int	goto_operation(char *s, t_list **lista, t_list **listb)
 	else if (ft_strcmp(s, "sb") == 0)
 		sb(listb, 0);
 	else if (ft_strcmp(s, "ss") == 0)
-		ss(lista, listb);
+		ss(lista, listb, 0);
 	else if (ft_strcmp(s, "pa") == 0)
-		pa(lista, listb);
+		pa(lista, listb, 0);
 	else if (ft_strcmp(s, "pb") == 0)
-		pb(lista, listb);
+		pb(lista, listb, 0);
 	else if (ft_strcmp(s, "ra") == 0)
 		ra(lista, 0);
 	else if (ft_strcmp(s, "rb") == 0)
 		rb(listb, 0);
 	else if (ft_strcmp(s, "rr") == 0)
-		rr(lista, listb);
+		rr(lista, listb, 0);
 	else if (ft_strcmp(s, "rra") == 0)
 		rra(lista, 0);
 	else if (ft_strcmp(s, "rrb") == 0)
 		rrb(listb, 0);
 	else if (ft_strcmp(s, "rrr") == 0)
-		rrr(lista, listb);
+		rrr(lista, listb, 0);
 	else
 		return (0);
 	return (1);

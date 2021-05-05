@@ -6,7 +6,7 @@
 /*   By: cmarien <cmarien@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:04:57 by cmarien           #+#    #+#             */
-/*   Updated: 2021/05/05 14:04:59 by cmarien          ###   ########.fr       */
+/*   Updated: 2021/05/05 14:31:56 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,21 @@ void	hundred_swap_3(t_list *lst_a, t_list *lst_b, t_algo *var)
 			if (var->direction > 0)
 				while (lst_a->head->nb > var->max_chunk &&
 					lst_b->head->nb != var->down)
-					rrr(&lst_a, &lst_b);
+					rrr(&lst_a, &lst_b, 1);
 			if (var->direction < 0)
 				while (lst_a->head->nb > var->max_chunk &&
 					lst_b->head->nb != var->down)
-					rr(&lst_a, &lst_b);
+					rr(&lst_a, &lst_b, 1);
 		}
 	}
 	else if (var->direction > 0 && var->p > 0)
 		while (lst_a->head->nb > var->max_chunk &&
 			lst_b->head->nb != var->down)
-			rr(&lst_a, &lst_b);
+			rr(&lst_a, &lst_b, 1);
 	else if (var->direction < 0 && var->p < 0)
 		while (lst_a->head->nb > var->max_chunk &&
 			lst_b->head->nb != var->down)
-			rrr(&lst_a, &lst_b);
+			rrr(&lst_a, &lst_b, 1);
 }
 
 void	hundred_swap_4(t_list *lst_a, t_list *lst_b, t_algo *var)
@@ -61,21 +61,21 @@ void	hundred_swap_4(t_list *lst_a, t_list *lst_b, t_algo *var)
 			if (var->direction > 0)
 				while (lst_a->head->nb > var->max_chunk &&
 					lst_b->tail->nb != var->up)
-					rrr(&lst_a, &lst_b);
+					rrr(&lst_a, &lst_b, 1);
 			if (var->direction < 0)
 				while (lst_a->head->nb > var->max_chunk &&
 					lst_b->tail->nb != var->p)
-					rr(&lst_a, &lst_b);
+					rr(&lst_a, &lst_b, 1);
 		}
 	}
 	else if (var->direction > 0 && var->p > 0)
 		while (lst_a->head->nb > var->max_chunk &&
 				lst_b->tail->nb != var->up)
-			rr(&lst_a, &lst_b);
+			rr(&lst_a, &lst_b, 1);
 	else if (var->direction < 0 && var->p < 0)
 		while (lst_a->head->nb > var->max_chunk &&
 				lst_b->tail->nb != var->up)
-			rrr(&lst_a, &lst_b);
+			rrr(&lst_a, &lst_b, 1);
 }
 
 void	hundred_swap_2(t_list *lst_a, t_list *lst_b, t_algo *var)

@@ -6,18 +6,19 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 14:48:47 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/05 14:22:36 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "utils.h"
 
-void	pa(t_list **lista, t_list **listb)
+void	pa(t_list **lista, t_list **listb, int option)
 {
 	t_node	*node;
 
-	write(1, "pa\n", 3);
+	if (option == 1)
+		write(1, "pa\n", 3);
 	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
 		return ;
 	node = (*listb)->head;
