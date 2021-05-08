@@ -13,82 +13,82 @@
 #include "utils.h"
 #include "push_swap.h"
 
-void	five_swap_1(t_list *lst_a, t_list *lst_b, int *i)
+void	five_swap_1(t_list *lista, t_list *listb, int *i)
 {
-	pb(&lst_a, &lst_b, 1);
-	pb(&lst_a, &lst_b, 1);
-	if (is_sorted(lst_a) != 1)
-		three_swap(lst_a);
-	if (lst_b->head->nb < lst_a->head->nb)
+	pb(&lista, &listb);
+	pb(&lista, &listb);
+	if (is_sorted(lista) != 1)
+		three_swap(lista, listb);
+	if (listb->head->nb < lista->head->nb)
 	{
-		if (lst_b->head->nb > lst_b->head->next->nb)
+		if (listb->head->nb > listb->head->next->nb)
 		{
-			pa(&lst_a, &lst_b, 1);
+			pa(&lista, &listb);
 			*i += 1;
 		}
-		pa(&lst_a, &lst_b, 1);
+		pa(&lista, &listb);
 		*i += 1;
-		if (*i < 2 && lst_b->head->nb > lst_a->tail->nb)
+		if (*i < 2 && listb->head->nb > lista->tail->nb)
 		{
-			pa(&lst_a, &lst_b, 1);
-			ra(&lst_a, 1);
+			pa(&lista, &listb);
+			ra(&lista, &listb);
 			*i += 1;
 		}
 	}
 }
 
-void	five_swap_2(t_list *lst_a, t_list *lst_b, int *i)
+void	five_swap_2(t_list *lista, t_list *listb, int *i)
 {
-	if (*i < 2 && (lst_b->head->nb > lst_a->tail->nb))
+	if (*i < 2 && (listb->head->nb > lista->tail->nb))
 	{
-		if (lst_b->head->nb < lst_b->head->next->nb)
+		if (listb->head->nb < listb->head->next->nb)
 		{
-			pa(&lst_a, &lst_b, 1);
-			ra(&lst_a, 1);
+			pa(&lista, &listb);
+			ra(&lista, &listb);
 			*i += 1;
 		}
-		pa(&lst_a, &lst_b, 1);
-		ra(&lst_a, 1);
+		pa(&lista, &listb);
+		ra(&lista, &listb);
 		*i += 1;
-		if (*i < 2 && lst_b->head->nb < lst_a->head->nb)
+		if (*i < 2 && listb->head->nb < lista->head->nb)
 		{
 			*i += 1;
-			pa(&lst_a, &lst_b, 1);
+			pa(&lista, &listb);
 		}
 	}
-	if (*i == 0 && (lst_b->head->next->nb > lst_a->tail->nb ||
-		lst_b->head->next->nb < lst_a->head->nb))
+	if (*i == 0 && (listb->head->next->nb > lista->tail->nb ||
+		listb->head->next->nb < lista->head->nb))
 	{
-		rb(&lst_b, 1);
-		pa(&lst_a, &lst_b, 1);
+		rb(&lista, &listb);
+		pa(&lista, &listb);
 		*i += 1;
 	}
 }
 
-void	five_swap_3(t_list *lst_a, t_list *lst_b, int *i, int direction)
+void	five_swap_3(t_list *lista, t_list *listb, int *i, int direction)
 {
 	while (*i < 2)
 	{
 		*i += 1;
-		direction = get_lowest_operation(lst_a, lst_b->head->nb, 0);
-		if (!(lst_b->head->nb < lst_a->head->nb &&
-			lst_b->head->nb > lst_a->tail->nb))
+		direction = get_lowest_operation(lista, listb->head->nb, 0);
+		if (!(listb->head->nb < lista->head->nb &&
+			listb->head->nb > lista->tail->nb))
 		{
 			if (direction >= 0)
 			{
-				while (lst_a->head->nb > lst_b->head->nb)
-					ra(&lst_a, 1);
-				while (lst_a->head->nb < lst_b->head->nb)
-					ra(&lst_a, 1);
+				while (lista->head->nb > listb->head->nb)
+					ra(&lista, &listb);
+				while (lista->head->nb < listb->head->nb)
+					ra(&lista, &listb);
 			}
 			else if (direction < 0)
 			{
-				while (lst_a->tail->nb < lst_b->head->nb)
-					rra(&lst_a, 1);
-				while (lst_a->tail->nb > lst_b->head->nb)
-					rra(&lst_a, 1);
+				while (lista->tail->nb < listb->head->nb)
+					rra(&lista, &listb);
+				while (lista->tail->nb > listb->head->nb)
+					rra(&lista, &listb);
 			}
 		}
-		pa(&lst_a, &lst_b, 1);
+		pa(&lista, &listb);
 	}
 }

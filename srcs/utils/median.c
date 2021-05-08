@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/05 14:56:29 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/04 15:18:36 by rmouduri         ###   ########.fr       */
+/*   Created: 2021/05/04 15:18:45 by rmouduri          #+#    #+#             */
+/*   Updated: 2021/05/04 15:18:59 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "utils.h"
 
-static void	ft_putchar(char c)
+int	median(t_list *lista, int size)
 {
-	write(1, &c, 1);
-}
+	int		ret;
+	int		min;
+	int		count;
+	t_node	tmp;
 
-void		ft_putnbr(int nb)
-{
-	if (nb < 0 && nb != -2147483648)
+	count = 0;
+	ret = -2147483648;
+	while (count < (size / 2))
 	{
-		write(1, "-", 1);
-		nb *= -1;
+		min = 2147483647;
+		tmp = *lista->head;
+		while (tmp.next)
+		{
+			if (tmp.nb < min && tmp.nb > ret)
+				min = tmp.nb;
+			tmp = *tmp.next;
+		}
+		if (tmp.nb < min && tmp.nb > ret)
+			min = tmp.nb;
+		count++;
+		ret = min;
 	}
-	if (nb > 9)
-		ft_putnbr(nb / 10);
-	if (nb != -2147483648)
-		ft_putchar((nb % 10) + 48);
-	else
-		write(1, "-2147483648", 11);
-}
-
-void		ft_putnbr_color(int nb)
-{
-	write(1, COLOR_RED, sizeof(COLOR_RED));
-	ft_putnbr(nb);
-	write(1, COLOR_DEFAULT, sizeof(COLOR_DEFAULT));
+	return (ret);
 }

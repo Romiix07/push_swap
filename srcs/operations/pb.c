@@ -6,21 +6,33 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/05 14:22:49 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/08 01:54:12 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "utils.h"
 
-void	pb(t_list **lista, t_list **listb, int option)
+int		*get_color_tab_pb(t_list *lista)
+{
+	int	i;
+
+	if (lista->option != 2)
+		return (0);
+	i = -1;
+	while (++i < 4)
+		lista->tab[i] = lista->head->nb;
+	return (lista->tab);
+}
+
+void	pb(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
-	if (option == 1)
-		write(1, "pb\n", 3);
 	if (!lista || !*lista || !(*lista)->head || !(*lista)->tail)
 		return ;
+	if ((*lista)->option == 2)
+		print_ope(*lista, *listb, "pb", get_color_tab_pb(*lista));
 	node = (*lista)->head;
 	if ((*lista)->head->nb != (*lista)->tail->nb)
 	{
@@ -39,4 +51,5 @@ void	pb(t_list **lista, t_list **listb, int option)
 	(*listb)->head = node;
 	if (!(*listb)->tail)
 		(*listb)->tail = node;
+	print_ope(*lista, *listb, "pb", (*lista)->tab);
 }

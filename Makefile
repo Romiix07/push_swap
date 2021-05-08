@@ -38,7 +38,8 @@ SRCS_BOTH	=	srcs/operations/pa.c \
 			srcs/utils/is_sorted.c \
 			srcs/utils/lists.c \
 			srcs/utils/lst_size.c \
-			srcs/utils/print_list.c
+			srcs/utils/print_list.c	\
+			srcs/utils/print_operations.c
 
 INCLUDES	=	-I./includes
 
@@ -67,7 +68,7 @@ checker:		${OBJS_CHECK} ${OBJS_BOTH}
 				${CC} ${CFLAGS} -o ${CHECK} ${OBJS_CHECK} ${OBJS_BOTH}
 
 push_swap:		${OBJS_PUSH} ${OBJS_BOTH}
-				${CC} ${CFLAGS} -o ${PUSH} ${OBJS_PUSH} ${OBJS_BOTH}
+				${CC} -g -fsanitize=address ${CFLAGS} -o ${PUSH} ${OBJS_PUSH} ${OBJS_BOTH}
 
 clean:
 				${RM} ${OBJS_PUSH} ${OBJS_CHECK} ${OBJS_BOTH}

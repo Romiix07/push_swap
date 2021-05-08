@@ -16,27 +16,27 @@
 static int	goto_operation(char *s, t_list **lista, t_list **listb)
 {
 	if (ft_strcmp(s, "sa") == 0)
-		sa(lista, 0);
+		sa(lista, listb);
 	else if (ft_strcmp(s, "sb") == 0)
-		sb(listb, 0);
+		sb(lista, listb);
 	else if (ft_strcmp(s, "ss") == 0)
-		ss(lista, listb, 0);
+		ss(lista, listb);
 	else if (ft_strcmp(s, "pa") == 0)
-		pa(lista, listb, 0);
+		pa(lista, listb);
 	else if (ft_strcmp(s, "pb") == 0)
-		pb(lista, listb, 0);
+		pb(lista, listb);
 	else if (ft_strcmp(s, "ra") == 0)
-		ra(lista, 0);
+		ra(lista, listb);
 	else if (ft_strcmp(s, "rb") == 0)
-		rb(listb, 0);
+		rb(lista, listb);
 	else if (ft_strcmp(s, "rr") == 0)
-		rr(lista, listb, 0);
+		rr(lista, listb);
 	else if (ft_strcmp(s, "rra") == 0)
-		rra(lista, 0);
+		rra(lista, listb);
 	else if (ft_strcmp(s, "rrb") == 0)
-		rrb(listb, 0);
+		rrb(lista, listb);
 	else if (ft_strcmp(s, "rrr") == 0)
-		rrr(lista, listb, 0);
+		rrr(lista, listb);
 	else
 		return (0);
 	return (1);

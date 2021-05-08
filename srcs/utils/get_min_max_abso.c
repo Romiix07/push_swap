@@ -21,11 +21,11 @@ int		abso(int nb)
 	return (nb);
 }
 
-void	get_min_max(int *min, int *max, t_list *lst_a)
+void	get_min_max(int *min, int *max, t_list *lista)
 {
 	t_node	tmp;
 
-	tmp = *lst_a->head;
+	tmp = *lista->head;
 	*min = tmp.nb;
 	*max = tmp.nb;
 	while (tmp.next)

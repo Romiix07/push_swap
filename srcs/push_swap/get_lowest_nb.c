@@ -13,12 +13,12 @@
 #include "utils.h"
 #include "push_swap.h"
 
-static int	get_min(t_list *lst_a)
+static int	get_min(t_list *lista)
 {
 	t_node	tmp;
 	int		min;
 
-	tmp = *lst_a->head;
+	tmp = *lista->head;
 	min = tmp.nb;
 	while (tmp.next)
 	{

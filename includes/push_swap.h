@@ -40,17 +40,17 @@ int				get_up_down(t_list *list, int ref, int *max, int *min);
 int				put_to_head(t_list *list, int nb);
 int				put_to_tail(t_list *list, int nb);
 void			var_edit(t_algo *var, int size);
-void			check_sort(t_list *lst_a);
-void			three_swap(t_list *lst_a);
-void			five_swap_1(t_list *lst_a, t_list *lst_b, int *i);
-void			five_swap_2(t_list *lst_a, t_list *lst_b, int *i);
-void			five_swap_3(t_list *lst_a, t_list *lst_b, int *i,
+void			check_sort(t_list *lista, t_list *listb);
+void			three_swap(t_list *lista, t_list *listb);
+void			five_swap_1(t_list *lista, t_list *listb, int *i);
+void			five_swap_2(t_list *lista, t_list *listb, int *i);
+void			five_swap_3(t_list *lista, t_list *listb, int *i,
 		int direction);
-void			hundred_swap_1(t_list *lst_a, int *size,
+void			hundred_swap_1(t_list *lista, int *size,
 		t_algo *var);
-void			hundred_swap_2(t_list *lst_a, t_list *lst_b, t_algo *var);
-void			hundred_swap_3(t_list *lst_a, t_list *lst_b, t_algo *var);
-void			hundred_swap_4(t_list *lst_a, t_list *lst_b, t_algo *var);
-void			hundred_swap_5(t_list *lst_a, t_list *lst_b, t_algo *var);
+void			hundred_swap_2(t_list *lista, t_list *listb, t_algo *var);
+void			hundred_swap_3(t_list *lista, t_list *listb, t_algo *var);
+void			hundred_swap_4(t_list *lista, t_list *listb, t_algo *var);
+void			hundred_swap_5(t_list *lista, t_list *listb, t_algo *var);
 
 #endif

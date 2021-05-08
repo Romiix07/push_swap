@@ -6,21 +6,33 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 13:02:31 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/05 14:22:36 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/05 18:02:58 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "utils.h"
 
-void	pa(t_list **lista, t_list **listb, int option)
+int		*get_color_tab_pa(t_list *listb)
+{
+	int	i;
+
+	if (listb->option != 2)
+		return (0);
+	i = -1;
+	while (++i < 4)
+		listb->tab[i] = listb->head->nb;
+	return (listb->tab);
+}
+
+void	pa(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
-	if (option == 1)
-		write(1, "pa\n", 3);
 	if (!listb || !*listb || !(*listb)->head || !(*listb)->tail)
 		return ;
+	if ((*listb)->option == 2)
+		print_ope(*lista, *listb, "pa", get_color_tab_pa(*listb));
 	node = (*listb)->head;
 	if ((*listb)->head->nb != (*listb)->tail->nb)
 	{
@@ -39,4 +51,5 @@ void	pa(t_list **lista, t_list **listb, int option)
 	(*lista)->head = node;
 	if (!(*lista)->tail)
 		(*lista)->tail = node;
+	print_ope(*lista, *listb, "pa", (*listb)->tab);
 }

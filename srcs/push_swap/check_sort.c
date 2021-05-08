@@ -13,16 +13,16 @@
 #include "utils.h"
 #include "push_swap.h"
 
-void	check_sort(t_list *lst_a)
+void	check_sort(t_list *lista, t_list *listb)
 {
 	int lowest;
 
-	lowest = where_is_lowest_nb(lst_a);
-	while (is_sorted(lst_a) != 1)
+	lowest = where_is_lowest_nb(lista);
+	while (is_sorted(lista) != 1)
 	{
 		if (lowest == 1)
-			ra(&lst_a, 1);
+			ra(&lista, &listb);
 		else
-			rra(&lst_a, 1);
+			rra(&lista, &listb);
 	}
 }

@@ -15,23 +15,23 @@
 
 int	is_sorted(t_list *lista)
 {
-	t_node	tmp;
+	t_node	*tmp;
 	int		nb;
 
 	if (!lista)
 		return (0);
 	if (lista->head)
-		tmp = *lista->head;
-	nb = tmp.nb;
-	while (tmp.next)
-	{
-		if (nb > tmp.nb)
-			return (0);
-		nb = tmp.nb;
-		tmp = *tmp.next;
-	}
-	if (nb > tmp.nb)
+		tmp = lista->head;
+	else
 		return (0);
+	nb = tmp->nb;
+	while (tmp)
+	{
+		if (nb > tmp->nb)
+			return (0);
+		nb = tmp->nb;
+		tmp = tmp->next;
+	}
 	return (1);
 }
 

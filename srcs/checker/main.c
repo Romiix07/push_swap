@@ -41,6 +41,8 @@ int			main(int ac, char **av)
 		return (0);
 	if (!(init_lists(&lista, &listb)))
 		return (0);
+	lista->option = 0;
+	listb->option = 0;
 	convert(tab, &lista, get_tab_size(ac, av));
 	free(tab);
 	if (read_and_exec_lines(&lista, &listb, -1, 0) == 0)

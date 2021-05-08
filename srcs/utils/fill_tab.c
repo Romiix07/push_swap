@@ -64,7 +64,7 @@ int			fill_tab(int ac, char **av, int **tab)
 	int	j;
 	int	count;
 
-	i = 0;
+	i = !ft_strcmp("-v", av[1]) || !ft_strcmp("-b", av[1]) ? 1 : 0;
 	count = -1;
 	while (++i < ac)
 	{

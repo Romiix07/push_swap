@@ -33,6 +33,8 @@ void	free_list(t_list **list)
 {
 	t_node	*node;
 
+	if ((*list)->tab)
+		free((*list)->tab);
 	while ((*list)->head)
 	{
 		node = (*list)->head->next;

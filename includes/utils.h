@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:31:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/05 14:24:12 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/08 02:30:04 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define UTILS_H
 
 # include <stddef.h>
+
+# define CLEAN_SCR		"\x1b[2J\x1b[d"
+# define COLOR_GREEN	"\033[0;32m"
+# define COLOR_RED		"\033[0;31m"
+# define COLOR_DEFAULT	"\033[0m"
 
 typedef struct	s_node {
 	int				nb;
@@ -24,7 +29,11 @@ typedef struct	s_node {
 typedef struct	s_list {
 	struct s_node	*head;
 	struct s_node	*tail;
+	int				option;
+	int				*tab;
 }				t_list;
+
+int				print_ope(t_list *lista, t_list *listb, char *ope, int *tab);
 
 size_t			ft_strlen(const char *s);
 int				ft_isdigit(int c);
@@ -38,7 +47,9 @@ int				init_lists(t_list **list1, t_list **list2);
 int				convert(int *tab, t_list **list, int tab_size);
 void			free_list(t_list **list);
 void			print_list(t_list *list);
+void			print_list_color(t_list *list, int *tab);
 void			ft_putnbr(int nb);
+void			ft_putnbr_color(int nb);
 int				is_rev_sorted(t_list *lista);
 int				is_sorted(t_list *lista);
 int				median(t_list *list_a, int size);
@@ -46,16 +57,16 @@ void			push_swap(t_list *list_a, t_list *list_b, int size);
 int				lst_size(t_list *list);
 int				abso(int nb);
 
-void			sa(t_list **lista, int option);
-void			sb(t_list **listb, int option);
-void			ss(t_list **lista, t_list **listb, int option);
-void			pa(t_list **lista, t_list **listb, int option);
-void			pb(t_list **lista, t_list **listb, int option);
-void			ra(t_list **lista, int option);
-void			rb(t_list **listb, int option);
-void			rr(t_list **lista, t_list **listb, int option);
-void			rra(t_list **lista, int option);
-void			rrb(t_list **listb, int option);
-void			rrr(t_list **lista, t_list **listb, int option);
+void			sa(t_list **lista, t_list **listb);
+void			sb(t_list **lista, t_list **listb);
+void			ss(t_list **lista, t_list **listb);
+void			pa(t_list **lista, t_list **listb);
+void			pb(t_list **lista, t_list **listb);
+void			ra(t_list **lista, t_list **listb);
+void			rb(t_list **lista, t_list **listb);
+void			rr(t_list **lista, t_list **listb);
+void			rra(t_list **lista, t_list **listb);
+void			rrb(t_list **lista, t_list **listb);
+void			rrr(t_list **lista, t_list **listb);
 
 #endif
