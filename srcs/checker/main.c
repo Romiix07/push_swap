@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:00:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/05 14:12:10 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/10 22:57:31 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int			main(int ac, char **av)
 	t_list	*lista;
 	t_list	*listb;
 
-	if (!check_init_tab(ac, av, &tab))
-		return (0);
+	if (ac < 2 || !check_init_tab(ac, av, &tab))
+		return (ac < 2 ? return_error("Not enough arguments\n") : 0);
 	if (!(init_lists(&lista, &listb)))
 		return (0);
 	if (!get_options(ac, av, lista, listb))
@@ -46,6 +46,8 @@ int			main(int ac, char **av)
 	if (!convert(tab, &lista, get_tab_size(ac, av)))
 		return (free_list(0, tab));
 	free(tab);
+	lista->option = 0;
+	listb->option = 0;
 	if (read_and_exec_lines(&lista, &listb, -1, 0) == 0)
 		write(2, "Error\n", 6);
 	else if (is_sorted(lista) == 0 || listb->head)

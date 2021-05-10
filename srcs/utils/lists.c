@@ -37,11 +37,10 @@ int		free_list(t_list **list, int *tab)
 {
 	t_node	*node;
 
-	if (tab && !list)
-	{
+	if (tab)
 		free(tab);
-		return (1);
-	}
+	if (!list)
+		return (0);
 	if ((*list)->tab)
 		free((*list)->tab);
 	if ((*list)->colors)

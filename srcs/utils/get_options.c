@@ -14,10 +14,12 @@
 #include <unistd.h>
 #include "utils.h"
 
-static int	open_file(char **av, t_list *lista, t_list *listb)
+static int	open_file(int ac, char **av, t_list *lista, t_list *listb)
 {
 	int fd;
 
+	if (ac < 3)
+		return (0);
 	if (lista->fd != 1)
 		return (1);
 	if ((fd = open(av[2], O_CREAT | O_APPEND | O_WRONLY | O_TRUNC, S_IRUSR |
@@ -49,7 +51,7 @@ int			get_options(int ac, char **av, t_list *lista, t_list *listb)
 	int i;
 
 	set_lists(av[0], lista, listb, &i);
-	if (ac > 2 && av[1][0] && av[1][0] == '-' && !ft_isdigit(av[1][1]))
+	if (av[1][0] && av[1][0] == '-' && !ft_isdigit(av[1][1]))
 		while (av[1][++i])
 		{
 			if (av[1][i] == 'v')
@@ -60,7 +62,7 @@ int			get_options(int ac, char **av, t_list *lista, t_list *listb)
 				lista->read = 1;
 			else if (av[1][i] == 'w')
 			{
-				if (!open_file(av, lista, listb))
+				if (!open_file(ac, av, lista, listb))
 					return (return_error("Can't open file\n"));
 			}
 			else

@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 12:31:37 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/08 02:30:04 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/10 22:26:36 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ int				lst_size(t_list *list);
 int				abso(int nb);
 int				get_options(int ac, char **av, t_list *lista, t_list *listb);
 char			*ft_strstr(char *str, char *to_find);
+char			*read_array(void);
+int				fill_read_tab(char *s, int **tab);
+int				get_str_size(char *s);
+int				check_arg(char *s);
+int				check_duplicate(int *tab, int ac);
 
 void			sa(t_list **lista, t_list **listb);
 void			sb(t_list **lista, t_list **listb);

@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "utils.h"
 
-static int	check_duplicate(int *tab, int ac)
+int			check_duplicate(int *tab, int ac)
 {
 	int	i;
 	int	j;
@@ -43,7 +43,7 @@ static int	get_i(int ac, char **av)
 	return (0);
 }
 
-static int	check_arg(char *s)
+int			check_arg(char *s)
 {
 	int			i;
 	char		sign;

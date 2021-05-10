@@ -40,7 +40,8 @@ SRCS_BOTH	=	srcs/operations/pa.c \
 				srcs/utils/print_list.c	\
 				srcs/utils/print_operations.c	\
 				srcs/utils/get_options.c	\
-				srcs/utils/ft_strstr.c
+				srcs/utils/ft_strstr.c	\
+				srcs/utils/read_array.c
 
 INCLUDES	=	-I./includes
 
@@ -54,7 +55,7 @@ PUSH		=	push_swap
 
 CHECK		=	checker
 
-CFLAGS      =   -g -fsanitize=address -Wall -Werror -Wextra
+CFLAGS      =   -Wall -Werror -Wextra
 
 CC			=	gcc
 
