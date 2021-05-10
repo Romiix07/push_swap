@@ -35,6 +35,8 @@ void	free_list(t_list **list)
 
 	if ((*list)->tab)
 		free((*list)->tab);
+	if ((*list)->colors)
+		free((*list)->colors);
 	while ((*list)->head)
 	{
 		node = (*list)->head->next;

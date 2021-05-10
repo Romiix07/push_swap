@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include "utils.h"
 
-int			*get_color_tab_sb(t_list *listb)
+static int	*get_color_tab_sb(t_list *listb)
 {
 	int	i;
 
@@ -23,8 +23,12 @@ int			*get_color_tab_sb(t_list *listb)
 		return (0);
 	i = 0;
 	listb->tab[i] = listb->head->nb;
+	listb->colors[i] = COLOR_RED;
 	while (++i < 4)
+	{
 		listb->tab[i] = listb->head->next->nb;
+		listb->colors[i] = COLOR_BLUE;
+	}
 	return (listb->tab);
 }
 
@@ -32,7 +36,7 @@ static void	sb_same(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
-	if ((*listb)->option == 2)
+	if ((*listb)->option == OPT_DEBUG)
 		print_ope(*lista, *listb, "sb", get_color_tab_sb(*listb));
 	node = (*listb)->head;
 	(*listb)->head = (*listb)->tail;
@@ -56,7 +60,7 @@ void		sb(t_list **lista, t_list **listb)
 		return ;
 	if ((*listb)->head->next->nb == (*listb)->tail->nb)
 		return (sb_same(lista, listb));
-	if ((*listb)->option == 2)
+	if ((*listb)->option == OPT_DEBUG)
 		print_ope(*lista, *listb, "sb", get_color_tab_sb(*listb));
 	node = (*listb)->head->next;
 	(*listb)->head->next = node->next;

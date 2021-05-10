@@ -13,19 +13,20 @@
 #include <unistd.h>
 #include "utils.h"
 
-int		*get_color_tab_rb(t_list *listb)
+static int	*get_color_tab_rb(t_list *listb)
 {
 	int	i;
 
 	if (listb->option != 2)
 		return (0);
 	i = -1;
+	listb->colors[0] = COLOR_RED;
 	while (++i < 4)
 		listb->tab[i] = listb->head->nb;
 	return (listb->tab);
 }
 
-void	rb(t_list **lista, t_list **listb)
+void		rb(t_list **lista, t_list **listb)
 {
 	t_node	*node;
 
@@ -33,7 +34,7 @@ void	rb(t_list **lista, t_list **listb)
 		return ;
 	if ((*listb)->head->nb == (*listb)->tail->nb)
 		return ;
-	if ((*listb)->option == 2)
+	if ((*listb)->option == OPT_DEBUG)
 		print_ope(*lista, *listb, "rb", get_color_tab_rb(*listb));
 	node = (*listb)->head;
 	(*listb)->head = (*listb)->head->next;

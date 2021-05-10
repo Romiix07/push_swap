@@ -33,9 +33,9 @@ void		ft_putnbr(int nb)
 		write(1, "-2147483648", 11);
 }
 
-void		ft_putnbr_color(int nb)
+void		ft_putnbr_color(int nb, char *color)
 {
-	write(1, COLOR_RED, sizeof(COLOR_RED));
+	write(1, color, sizeof(color));
 	ft_putnbr(nb);
 	write(1, COLOR_DEFAULT, sizeof(COLOR_DEFAULT));
 }

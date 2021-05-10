@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:29:53 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/08 02:26:44 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/10 15:39:23 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ static int	init_tab_list(t_list **lista, t_list **listb)
 {
 	(*lista)->tab = 0;
 	(*listb)->tab = 0;
-	if ((*lista)->option == 2 && (!((*lista)->tab = malloc(sizeof(int) * 4)) ||
-		!((*listb)->tab = malloc(sizeof(int) * 4))))
+	(*lista)->colors = 0;
+	(*listb)->colors = 0;
+	if ((*lista)->option == OPT_DEBUG &&
+		(!((*lista)->tab = malloc(sizeof(int) * 4)) ||
+		!((*listb)->tab = malloc(sizeof(int) * 4)) ||
+		!((*lista)->colors = malloc(sizeof(char *) * 4)) ||
+		!((*listb)->colors = malloc(sizeof(char *) * 4))))
 	{
 		if ((*lista)->tab)
 			free((*lista)->tab);
@@ -30,6 +35,10 @@ static int	init_tab_list(t_list **lista, t_list **listb)
 		if ((*listb)->tab)
 			free((*listb)->tab);
 		(*listb)->tab = 0;
+		if ((*lista)->colors)
+			free((*lista)->colors);
+		if ((*listb)->colors)
+			free((*listb)->colors);
 		free_list(lista);
 		free_list(listb);
 		return (0);
@@ -39,16 +48,18 @@ static int	init_tab_list(t_list **lista, t_list **listb)
 
 static void	get_option(char *s, t_list *lista, t_list *listb)
 {
+	lista->fd = 1;
+	listb->fd = 1;
 	if (!ft_strcmp("-v", s))
 	{
-		lista->option = 2;
-		listb->option = 2;
+		lista->option = OPT_DEBUG;
+		listb->option = OPT_DEBUG;
 		return ;
 	}
-	else if (!ft_strcmp("-b", s))
+	else if (!ft_strcmp("-c", s))
 	{
-		lista->option = 3;
-		listb->option = 3;
+		lista->option = OPT_COLOR;
+		listb->option = OPT_COLOR;
 		return ;
 	}
 	lista->option = 1;
@@ -89,7 +100,7 @@ int			main(int ac, char **av)
 	free(tab);
 	get_option(av[1], lista, listb);
 	if (!init_tab_list(&lista, &listb))
-		return (return_error("Malloc of tabs in lists\n"));
+		return (return_error("Malloc of tabs/colors in lists\n"));
 	push_swap(lista, listb, get_tab_size(ac, av));
 	free_list(&lista);
 	free_list(&listb);

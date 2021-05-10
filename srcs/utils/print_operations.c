@@ -69,18 +69,18 @@ int			print_ope(t_list *lista, t_list *listb, char *ope, int *tab)
 		return (0);
 	if (option == 1)
 		return (print_color(ope, "\n", 0));
-	else if (option == 2 && step == 0)
+	else if (option == OPT_DEBUG && step == 0)
 	{
 		step = 1;
 		debug_before_ope(lista, listb, ope, tab);
 	}
-	else if (option == 2 && step == 1)
+	else if (option == OPT_DEBUG && step == 1)
 	{
 		step = 0;
 		write(1, "-----\n", 6);
 		debug_after_ope(lista, listb, tab);
 	}
-	else if (option == 3)
+	else if (option == OPT_COLOR)
 		print_color(ope, "\n", lista && listb && !listb->head &&
 			is_sorted(lista) ? COLOR_GREEN : 0);
 	return (1);

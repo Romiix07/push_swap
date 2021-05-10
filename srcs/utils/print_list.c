@@ -17,16 +17,19 @@ static int	is_nb_color(int nb, int *tab)
 {
 	int	i;
 
+	if (!tab)
+		return (-1);
 	i = -1;
 	while (++i < 4)
 		if (tab[i] == nb)
-			return (1);
-	return (0);
+			return (i);
+	return (-1);
 }
 
 void		print_list_color(t_list *list, int *tab)
 {
 	t_node	*tmp;
+	int		i;
 
 	if (!list)
 		return ;
@@ -39,8 +42,8 @@ void		print_list_color(t_list *list, int *tab)
 	}
 	while (tmp)
 	{
-		if (is_nb_color(tmp->nb, tab))
-			ft_putnbr_color(tmp->nb);
+		if ((i = is_nb_color(tmp->nb, tab)) != -1)
+			ft_putnbr_color(tmp->nb, list->colors[i]);
 		else
 			ft_putnbr(tmp->nb);
 		if (tmp->next)

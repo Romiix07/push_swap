@@ -15,10 +15,14 @@
 
 # include <stddef.h>
 
-# define CLEAN_SCR		"\x1b[2J\x1b[d"
-# define COLOR_GREEN	"\033[0;32m"
 # define COLOR_RED		"\033[0;31m"
+# define COLOR_GREEN	"\033[0;32m"
+# define COLOR_BLUE		"\033[0;34m"
+# define COLOR_PUR		"\033[0;35m"
 # define COLOR_DEFAULT	"\033[0m"
+
+# define OPT_DEBUG		2
+# define OPT_COLOR		3
 
 typedef struct	s_node {
 	int				nb;
@@ -30,7 +34,9 @@ typedef struct	s_list {
 	struct s_node	*head;
 	struct s_node	*tail;
 	int				option;
+	int				fd;
 	int				*tab;
+	char			**colors;
 }				t_list;
 
 int				print_ope(t_list *lista, t_list *listb, char *ope, int *tab);
@@ -49,7 +55,7 @@ void			free_list(t_list **list);
 void			print_list(t_list *list);
 void			print_list_color(t_list *list, int *tab);
 void			ft_putnbr(int nb);
-void			ft_putnbr_color(int nb);
+void			ft_putnbr_color(int nb, char *color);
 int				is_rev_sorted(t_list *lista);
 int				is_sorted(t_list *lista);
 int				median(t_list *list_a, int size);
