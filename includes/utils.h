@@ -37,6 +37,7 @@ typedef struct	s_list {
 	int				fd;
 	int				*tab;
 	char			**colors;
+	int				read;
 }				t_list;
 
 int				print_ope(t_list *lista, t_list *listb, char *ope, int *tab);
@@ -51,17 +52,19 @@ int				ft_strcmp(const char *s1, const char *s2);
 t_node			*ft_lstnew(int nb);
 int				init_lists(t_list **list1, t_list **list2);
 int				convert(int *tab, t_list **list, int tab_size);
-void			free_list(t_list **list);
+int				free_list(t_list **list, int *tab);
 void			print_list(t_list *list);
 void			print_list_color(t_list *list, int *tab);
-void			ft_putnbr(int nb);
-void			ft_putnbr_color(int nb, char *color);
+void			ft_putnbr_fd(int nb, int fd);
+void			ft_putnbr_color(int nb, char *color, int fd);
 int				is_rev_sorted(t_list *lista);
 int				is_sorted(t_list *lista);
 int				median(t_list *list_a, int size);
 void			push_swap(t_list *list_a, t_list *list_b, int size);
 int				lst_size(t_list *list);
 int				abso(int nb);
+int				get_options(int ac, char **av, t_list *lista, t_list *listb);
+char			*ft_strstr(char *str, char *to_find);
 
 void			sa(t_list **lista, t_list **listb);
 void			sb(t_list **lista, t_list **listb);

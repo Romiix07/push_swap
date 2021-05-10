@@ -29,6 +29,20 @@ static int	check_duplicate(int *tab, int ac)
 	return (1);
 }
 
+static int	get_i(int ac, char **av)
+{
+	int	i;
+
+	i = -1;
+	while (av[1][++i] && av[1][0] == '-' &&
+		!ft_isdigit(av[1][i]))
+		if (av[1][i] == 'w')
+			return (ac > 2 ? 2 : ac - 1);
+	if (av[1][0] != 0 && av[1][0] == '-' && !ft_isdigit(av[1][1]))
+		return (1);
+	return (0);
+}
+
 static int	check_arg(char *s)
 {
 	int			i;
@@ -64,7 +78,7 @@ int			fill_tab(int ac, char **av, int **tab)
 	int	j;
 	int	count;
 
-	i = !ft_strcmp("-v", av[1]) || !ft_strcmp("-c", av[1]) ? 1 : 0;
+	i = get_i(ac, av);
 	count = -1;
 	while (++i < ac)
 	{
@@ -93,10 +107,8 @@ int			get_tab_size(int ac, char **av)
 	int	j;
 	int	count;
 
-	i = 0;
+	i = get_i(ac, av);
 	count = 0;
-	if (av[1][0] != 0 && av[1][0] == '-' && !ft_isdigit(av[1][1]))
-		++i;
 	while (++i < ac)
 	{
 		j = 0;

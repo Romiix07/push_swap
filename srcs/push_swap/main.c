@@ -39,38 +39,18 @@ static int	init_tab_list(t_list **lista, t_list **listb)
 			free((*lista)->colors);
 		if ((*listb)->colors)
 			free((*listb)->colors);
-		free_list(lista);
-		free_list(listb);
+		free_list(lista, 0);
+		free_list(listb, 0);
 		return (0);
 	}
 	return (1);
-}
-
-static void	get_option(char *s, t_list *lista, t_list *listb)
-{
-	lista->fd = 1;
-	listb->fd = 1;
-	if (!ft_strcmp("-v", s))
-	{
-		lista->option = OPT_DEBUG;
-		listb->option = OPT_DEBUG;
-		return ;
-	}
-	else if (!ft_strcmp("-c", s))
-	{
-		lista->option = OPT_COLOR;
-		listb->option = OPT_COLOR;
-		return ;
-	}
-	lista->option = 1;
-	listb->option = 1;
 }
 
 static int	check_init_tab(int ac, char **av, int **tab)
 {
 	if (ac < 2)
 		return (return_error(0));
-	if (get_tab_size(ac, av) == -1)
+	if (get_tab_size(ac, av) <= 0)
 		return (return_error("Invalid numbers\n"));
 	if (!(*tab = malloc(sizeof(int) * (get_tab_size(ac, av)))))
 		return (return_error("Malloc of int tab\n"));
@@ -92,17 +72,15 @@ int			main(int ac, char **av)
 		return (0);
 	if (!(init_lists(&lista, &listb)))
 		return (0);
+	if (!get_options(ac, av, lista, listb))
+		return (free_list(&lista, tab) + free_list(&listb, 0));
 	if (!convert(tab, &lista, get_tab_size(ac, av)))
-	{
-		free(tab);
-		return (return_error("Malloc of linked list\n"));
-	}
+		return (free_list(0, tab) + return_error("Malloc of linked list\n"));
 	free(tab);
-	get_option(av[1], lista, listb);
 	if (!init_tab_list(&lista, &listb))
 		return (return_error("Malloc of tabs/colors in lists\n"));
 	push_swap(lista, listb, get_tab_size(ac, av));
-	free_list(&lista);
-	free_list(&listb);
+	free_list(&lista, 0);
+	free_list(&listb, 0);
 	return (1);
 }

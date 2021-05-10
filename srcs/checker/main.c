@@ -41,19 +41,17 @@ int			main(int ac, char **av)
 		return (0);
 	if (!(init_lists(&lista, &listb)))
 		return (0);
-	lista->option = 0;
-	listb->option = 0;
-	convert(tab, &lista, get_tab_size(ac, av));
+	if (!get_options(ac, av, lista, listb))
+		return (free_list(0, tab));
+	if (!convert(tab, &lista, get_tab_size(ac, av)))
+		return (free_list(0, tab));
 	free(tab);
 	if (read_and_exec_lines(&lista, &listb, -1, 0) == 0)
 		write(2, "Error\n", 6);
+	else if (is_sorted(lista) == 0 || listb->head)
+		write(lista->fd, "KO\n", 3);
 	else
-	{
-		if (is_sorted(lista) == 0 || listb->head)
-			write(1, "KO\n", 3);
-		else
-			write(1, "OK\n", 3);
-	}
-	free_list(&lista);
-	free_list(&listb);
+		write(lista->fd, "OK\n", 3);
+	free_list(&lista, 0);
+	return (free_list(&listb, 0));
 }

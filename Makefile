@@ -9,7 +9,6 @@ SRCS_PUSH	=	srcs/push_swap/check_sort.c \
 				srcs/push_swap/main.c \
 				srcs/push_swap/push_swap.c \
 				srcs/push_swap/put_to.c \
-				srcs/push_swap/steps.c \
 				srcs/push_swap/var_edit.c
 
 SRCS_CHECK	=	srcs/checker/checker.c \
@@ -39,7 +38,9 @@ SRCS_BOTH	=	srcs/operations/pa.c \
 				srcs/utils/lists.c \
 				srcs/utils/lst_size.c \
 				srcs/utils/print_list.c	\
-				srcs/utils/print_operations.c
+				srcs/utils/print_operations.c	\
+				srcs/utils/get_options.c	\
+				srcs/utils/ft_strstr.c
 
 INCLUDES	=	-I./includes
 
@@ -53,7 +54,7 @@ PUSH		=	push_swap
 
 CHECK		=	checker
 
-CFLAGS      =   -Wall -Werror -Wextra
+CFLAGS      =   -g -fsanitize=address -Wall -Werror -Wextra
 
 CC			=	gcc
 
@@ -68,7 +69,7 @@ checker:		${OBJS_CHECK} ${OBJS_BOTH}
 				${CC} ${CFLAGS} -o ${CHECK} ${OBJS_CHECK} ${OBJS_BOTH}
 
 push_swap:		${OBJS_PUSH} ${OBJS_BOTH}
-				${CC} ${CFLAGS} -o ${PUSH} ${OBJS_PUSH} ${OBJS_BOTH}
+				${CC}  ${CFLAGS} -o ${PUSH} ${OBJS_PUSH} ${OBJS_BOTH}
 
 clean:
 				${RM} ${OBJS_PUSH} ${OBJS_CHECK} ${OBJS_BOTH}

@@ -37,20 +37,20 @@ void		print_list_color(t_list *list, int *tab)
 		tmp = list->head;
 	else
 	{
-		write(1, "NULL List\n", 10);
+		write(list->fd, "NULL List\n", 10);
 		return ;
 	}
 	while (tmp)
 	{
 		if ((i = is_nb_color(tmp->nb, tab)) != -1)
-			ft_putnbr_color(tmp->nb, list->colors[i]);
+			ft_putnbr_color(tmp->nb, list->colors[i], list->fd);
 		else
-			ft_putnbr(tmp->nb);
+			ft_putnbr_fd(tmp->nb, list->fd);
 		if (tmp->next)
-			write(1, " ", 1);
+			write(list->fd, " ", 1);
 		tmp = tmp->next;
 	}
-	write(1, "\n", 1);
+	write(list->fd, "\n", 1);
 }
 
 void		print_list(t_list *list)
@@ -63,15 +63,15 @@ void		print_list(t_list *list)
 		tmp = list->head;
 	else
 	{
-		write(1, "NULL List\n", 10);
+		write(list->fd, "NULL List\n", 10);
 		return ;
 	}
 	while (tmp)
 	{
-		ft_putnbr(tmp->nb);
+		ft_putnbr_fd(tmp->nb, list->fd);
 		if (tmp->next)
-			write(1, " ", 1);
+			write(list->fd, " ", 1);
 		tmp = tmp->next;
 	}
-	write(1, "\n", 1);
+	write(list->fd, "\n", 1);
 }

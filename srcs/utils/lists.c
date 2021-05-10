@@ -26,13 +26,22 @@ int		init_lists(t_list **list1, t_list **list2)
 	(*list1)->tail = NULL;
 	(*list2)->head = NULL;
 	(*list2)->tail = NULL;
+	(*list1)->tab = 0;
+	(*list2)->tab = 0;
+	(*list1)->colors = 0;
+	(*list2)->colors = 0;
 	return (1);
 }
 
-void	free_list(t_list **list)
+int		free_list(t_list **list, int *tab)
 {
 	t_node	*node;
 
+	if (tab && !list)
+	{
+		free(tab);
+		return (1);
+	}
 	if ((*list)->tab)
 		free((*list)->tab);
 	if ((*list)->colors)
@@ -44,6 +53,7 @@ void	free_list(t_list **list)
 		(*list)->head = node;
 	}
 	free(*list);
+	return (1);
 }
 
 int		convert(int *tab, t_list **list, int tab_size)
@@ -62,7 +72,7 @@ int		convert(int *tab, t_list **list, int tab_size)
 	{
 		if (!(node = ft_lstnew(tab[i])))
 		{
-			free_list(list);
+			free_list(list, 0);
 			return (0);
 		}
 		node->prev = (*list)->tail;

@@ -13,15 +13,15 @@
 #include <unistd.h>
 #include "utils.h"
 
-static int	print_color(char *ope, char *add, char *color)
+static int	print_color(char *ope, char *add, char *color, int fd)
 {
 	if (color)
-		write(1, color, sizeof(color));
-	write(1, ope, ft_strlen(ope));
+		write(fd, color, sizeof(color));
+	write(fd, ope, ft_strlen(ope));
 	if (color)
-		write(1, COLOR_DEFAULT, sizeof(COLOR_DEFAULT));
+		write(fd, COLOR_DEFAULT, sizeof(COLOR_DEFAULT));
 	if (add)
-		write(1, add, ft_strlen(add));
+		write(fd, add, ft_strlen(add));
 	return (1);
 }
 
@@ -29,33 +29,34 @@ static void	debug_after_ope(t_list *lista, t_list *listb, int *tab)
 {
 	if (lista)
 	{
-		write(1, "A: ", 3);
+		write(lista->fd, "A: ", 3);
 		print_list_color(lista, tab);
 	}
 	if (listb)
 	{
-		write(1, "B: ", 3);
+		write(lista->fd, "B: ", 3);
 		print_list_color(listb, tab);
 	}
 	if ((listb && listb->head) || (lista && !is_sorted(lista)))
-		write(1, "\n", 1);
+		write(lista->fd, "\n", 1);
 	else
-		print_color("\nSORTED!\n", 0, COLOR_GREEN);
+		print_color("\nSORTED!\n", 0, COLOR_GREEN, lista ? lista->fd :
+			listb->fd);
 }
 
 static void	debug_before_ope(t_list *lista, t_list *listb, char *ope, int *tab)
 {
-	write(1, "\033[1m", sizeof("\033[1m"));
-	print_color(ope, ": \n", 0);
-	write(1, "\033[22m", sizeof("\033[22m"));
+	write(lista->fd, "\033[1m", sizeof("\033[1m"));
+	print_color(ope, ": \n", 0, lista ? lista->fd : listb->fd);
+	write(lista->fd, "\033[22m", sizeof("\033[22m"));
 	if (lista)
 	{
-		write(1, "A: ", 3);
+		write(lista->fd, "A: ", 3);
 		print_list_color(lista, tab);
 	}
 	if (listb)
 	{
-		write(1, "B: ", 3);
+		write(lista->fd, "B: ", 3);
 		print_list_color(listb, tab);
 	}
 }
@@ -68,7 +69,7 @@ int			print_ope(t_list *lista, t_list *listb, char *ope, int *tab)
 	if ((option = lista ? lista->option : listb->option) == 0)
 		return (0);
 	if (option == 1)
-		return (print_color(ope, "\n", 0));
+		return (print_color(ope, "\n", 0, lista ? lista->fd : listb->fd));
 	else if (option == OPT_DEBUG && step == 0)
 	{
 		step = 1;
@@ -77,11 +78,11 @@ int			print_ope(t_list *lista, t_list *listb, char *ope, int *tab)
 	else if (option == OPT_DEBUG && step == 1)
 	{
 		step = 0;
-		write(1, "-----\n", 6);
+		write(lista->fd, "-----\n", 6);
 		debug_after_ope(lista, listb, tab);
 	}
 	else if (option == OPT_COLOR)
 		print_color(ope, "\n", lista && listb && !listb->head &&
-			is_sorted(lista) ? COLOR_GREEN : 0);
+			is_sorted(lista) ? COLOR_GREEN : 0, lista ? lista->fd : listb->fd);
 	return (1);
 }

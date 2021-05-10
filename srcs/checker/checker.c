@@ -55,10 +55,7 @@ int			read_and_exec_lines(t_list **lista, t_list **listb, int i, char c)
 		{
 			s[++i] = '\0';
 			if (goto_operation((char *)s, lista, listb) == 0)
-			{
-				write(1, "0", 1);
 				return (0);
-			}
 			i = -1;
 		}
 		else
