@@ -38,9 +38,9 @@ SRCS_BOTH	=	srcs/operations/pa.c \
 				srcs/utils/lists.c \
 				srcs/utils/lst_size.c \
 				srcs/utils/print_list.c	\
-				srcs/utils/print_operations.c	\
-				srcs/utils/get_options.c	\
-				srcs/utils/ft_strstr.c	\
+				srcs/utils/print_operations.c \
+				srcs/utils/get_options.c \
+				srcs/utils/ft_strstr.c \
 				srcs/utils/read_array.c
 
 INCLUDES	=	-I./includes

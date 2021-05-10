@@ -6,11 +6,10 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:55:47 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/05 14:35:39 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:02:35 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "utils.h"
 
 int			check_duplicate(int *tab, int ac)

@@ -6,13 +6,11 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 11:29:53 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/05/10 15:39:23 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:02:48 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
-
 #include <stdlib.h>
 #include "utils.h"
 #include "push_swap.h"
