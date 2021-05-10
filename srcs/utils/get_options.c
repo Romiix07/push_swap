@@ -49,7 +49,7 @@ int			get_options(int ac, char **av, t_list *lista, t_list *listb)
 	int i;
 
 	set_lists(av[0], lista, listb, &i);
-	if (ac > 2 && av[1][0] == '-')
+	if (ac > 2 && av[1][0] && av[1][0] == '-' && !ft_isdigit(av[1][1]))
 		while (av[1][++i])
 		{
 			if (av[1][i] == 'v')
