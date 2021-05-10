@@ -17,7 +17,7 @@ static int	*get_color_tab_sb(t_list *listb)
 {
 	int	i;
 
-	if (listb->option != 2)
+	if (listb->option != OPT_DEBUG)
 		return (0);
 	if (!listb->head || !listb->head->next)
 		return (0);

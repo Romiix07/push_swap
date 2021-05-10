@@ -17,7 +17,7 @@ static int	*get_color_tab_pb(t_list *lista)
 {
 	int	i;
 
-	if (lista->option != 2)
+	if (lista->option != OPT_DEBUG)
 		return (0);
 	i = -1;
 	lista->colors[0] = COLOR_RED;

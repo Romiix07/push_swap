@@ -17,7 +17,7 @@ static int	*get_color_tab_rrb(t_list *listb)
 {
 	int	i;
 
-	if (listb->option != 2)
+	if (listb->option != OPT_DEBUG)
 		return (0);
 	i = -1;
 	listb->colors[0] = COLOR_RED;

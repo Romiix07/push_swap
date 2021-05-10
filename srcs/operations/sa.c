@@ -17,7 +17,7 @@ static int	*get_color_tab_sa(t_list *lista)
 {
 	int	i;
 
-	if (lista->option != 2)
+	if (lista->option != OPT_DEBUG)
 		return (0);
 	if (!lista->head || !lista->head->next)
 		return (0);

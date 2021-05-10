@@ -17,17 +17,17 @@ static int	*get_color_tab_rrr(t_list *lista, t_list *listb)
 {
 	int	i;
 
-	if (listb->option != 2)
+	if (listb->option != OPT_DEBUG || (!lista->tail && !listb->tail))
 		return (0);
 	i = 0;
-	lista->tab[i] = lista->tail->nb;
-	listb->tab[i] = lista->tail->nb;
+	lista->tab[i] = lista->tail ? lista->tail->nb : listb->tail->nb;
+	listb->tab[i] = lista->tail ? lista->tail->nb : listb->tail->nb;
 	lista->colors[0] = COLOR_RED;
 	listb->colors[0] = COLOR_RED;
 	while (++i < 4)
 	{
-		lista->tab[i] = listb->tail->nb;
-		listb->tab[i] = listb->tail->nb;
+		lista->tab[i] = listb->tail ? listb->tail->nb : lista->tail->nb;
+		listb->tab[i] = listb->tail ? listb->tail->nb : lista->tail->nb;
 		lista->colors[i] = COLOR_BLUE;
 		listb->colors[i] = COLOR_BLUE;
 	}
