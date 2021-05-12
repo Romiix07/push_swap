@@ -48,11 +48,7 @@ char		*read_array(void)
 	while ((r = read(0, &c, 1)) > 0)
 	{
 		if (c == 0 || c == '\n')
-		{
-			while ((r = read(0, &c, 1)) > 0)
-				;
-			break ;
-		}
+			return (s);
 		if (!(s = concatenate_str(s, c)))
 			return (0);
 	}

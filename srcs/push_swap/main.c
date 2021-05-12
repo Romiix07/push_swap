@@ -111,6 +111,8 @@ int			main(int ac, char **av)
 	if (!init_tab_list(&lista, &listb))
 		return (return_error("Malloc of tabs/colors in lists\n"));
 	push_swap(lista, listb, lista->read == 1 ? size : get_tab_size(ac, av));
+	if (lista->fd > 1)
+		close(lista->fd);
 	free_list(&lista, 0);
 	free_list(&listb, 0);
 	return (1);
