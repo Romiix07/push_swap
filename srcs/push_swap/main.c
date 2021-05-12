@@ -70,8 +70,8 @@ static int	check_init_tab(int ac, char **av, int **tab)
 	int		r;
 	char	*s;
 
-	if (!(r = get_tab_size(ac, av) <= 0 ? check_r_option(av, &s) :
-		get_tab_size(ac, av)))
+	if ((r = get_tab_size(ac, av) <= 0 ? check_r_option(av, &s) :
+		get_tab_size(ac, av)) <= 0)
 		return (return_error("Invalid numbers\n"));
 	if (!(*tab = malloc(sizeof(int) * r)))
 	{
